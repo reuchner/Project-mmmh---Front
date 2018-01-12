@@ -8,7 +8,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 //Request::setTrustedProxies(array('127.0.0.1'));
 //home
-
 $app->get('/', function () use ($app) {
     return $app['twig']->render('pages/home.html.twig', array());
 })
@@ -18,6 +17,7 @@ $app->get('/home', function () use ($app) {
 })
 ->bind('home');
 
+//connexion et inscription
 $app->get("/login", function() use ($app){
     return $app["twig"]->render("pages/login.html.twig", array());
 })->bind("login");
@@ -25,6 +25,16 @@ $app->get("/login", function() use ($app){
 $app->get("/register", function() use ($app){
     return $app["twig"]->render("pages/register.html.twig", array());
 })->bind("register");
+
+//page
+$app->get("/formExpert", function() use ($app){
+    return $app["twig"]->render("pages/formExpert.html.twig", array());
+})->bind("formExpert");
+
+$app->get("/formEquipe", function() use ($app){
+    return $app["twig"]->render("pages/formEquipe.html.twig", array());
+})->bind("formEquipe");
+
 
 
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
