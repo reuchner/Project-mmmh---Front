@@ -1,6 +1,6 @@
 
 {% extends "layout-home.html.twig" %}
-
+{% block headTitle %}Enregistrement-experts{% endblock  %}
 {% block content %}
     <h1>Enregistrement des experts Mmmh !</h1>
             <form role="form">
@@ -11,13 +11,13 @@
               </div>
           
               <div class="row">
-                  <div class="col-sm-6">
+                  <div class="col-md-6">
                       <div class="form-group form-group-default">
                           <label>Prénom</label>
                           <input type="text" id="firstname" name="firstname" class="form-control" required>
                       </div>
                   </div>
-                  <div class="col-sm-6">
+                  <div class="col-md-6">
                       <div class="form-group form-group-default">
                           <label>Nom</label>
                           <input type="text" id="lastname" name="lastname" class="form-control">
