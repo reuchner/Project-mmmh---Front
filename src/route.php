@@ -19,11 +19,11 @@ $app->get('/home', function () use ($app) {
 
 //connexion et inscription
 $app->get("/login", function() use ($app){
-    return $app["twig"]->render("pages/login.html.twig", array());
+    return $app["twig"]->render("login-register/login.html.twig", array());
 })->bind("login");
 
 $app->get("/register", function() use ($app){
-    return $app["twig"]->render("pages/register.html.twig", array());
+    return $app["twig"]->render("login-register/register.html.twig", array());
 })->bind("register");
 
 //page
@@ -34,6 +34,10 @@ $app->get("/formExpert", function() use ($app){
 $app->get("/formEquipe", function() use ($app){
     return $app["twig"]->render("pages/formEquipe.html.twig", array());
 })->bind("formEquipe");
+
+$app->get("/filtre", function() use ($app){
+    return $app["twig"]->render("pages/filtre.html.twig", array());
+})->bind("filtre");
 
 
 

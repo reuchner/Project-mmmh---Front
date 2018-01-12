@@ -1,0 +1,27 @@
+{% extends "layout-home.html.twig" %}
+
+{% block content %}
+<div class="card card-default">
+                  <div class="card-header ">
+                    <div class="card-title">Tag Input
+                    </div>
+                    <div class="tools">
+                      <a class="collapse" href="javascript:;"></a>
+                      <a class="config" data-toggle="modal" href="#grid-config"></a>
+                      <a class="reload" href="javascript:;"></a>
+                      <a class="remove" href="javascript:;"></a>
+                    </div>
+                  </div>
+                  <div class="card-block">
+                    <p>Do you use tags to organize content on your site? This plugin will turn your boring tag list into a magical input that turns each tag into a style-able object with its own delete link.
+                    </p>
+                    <br>
+                    <input class="tagsinput custom-tag-input" type="text" value="Amsterdam,Washington" />
+                    <input class="tagsinput custom-tag-input" type="text" value="johnsmith@pages.io,janesmith@pages.io" />
+                    <div class="form-group form-group-default required ">
+                      <label>Tags</label>
+                      <input class="tagsinput custom-tag-input" type="text" value="hello World, quotes, inspiration" />
+                    </div>
+                  </div>
+                </div>
+{% endblock %}

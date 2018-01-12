@@ -72,16 +72,14 @@
         <!-- BEGIN SIDEBAR MENU ITEMS-->
         <ul class="menu-items">
           <li class="m-t-30 ">
-            <a href="index.html" class="detailed">
+            <a href="{{ path('home') }}" class="detailed">
               <span class="title">Accueil</span>
-              <span class="details">12 New Updates</span>
             </a>
             <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span>
           </li>
           <li class="">
             <a href="email.html" class="detailed">
               <span class="title">Messagerie</span>
-              <span class="details">234 New Emails</span>
             </a>
             <span class="icon-thumbnail"><i class="pg-mail"></i></span>
           </li>
@@ -128,7 +126,7 @@
                 <span class="icon-thumbnail"></span>
               </li>
               <li class="">
-                <a href="">Filtres</a>
+                <a href="{{ path('filtre') }}">Filtres</a>
                 <span class="icon-thumbnail"></span>
               </li>
               <li class="">
@@ -138,6 +136,23 @@
               <li class="">
                 <a href="">Voir profil consomateurs</a>
                 <span class="icon-thumbnail">D</span>
+              </li>
+            </ul>
+          </li>
+
+          {# -- MENU Admin Mmmhh -- #}
+          <li>
+            <a href="javascript:;"><span class="title">Admin</span>
+            <span class=" arrow"></span></a>
+            <span class="icon-thumbnail"><i class="pg-calender"></i></span>
+            <ul class="sub-menu">
+              <li class="">
+                <a href="{{ path('formEquipe') }}">Gestion membres</a>
+                <span class="icon-thumbnail"></span>
+              </li>
+              <li class="">
+                <a href="{{ path('formExpert') }}">Gestion experts</a>
+                <span class="icon-thumbnail"></span>
               </li>
             </ul>
           </li>
@@ -205,7 +220,9 @@
         <div class="content sm-gutter">
           <!-- START CONTAINER FLUID -->
           <div class="container-fluid padding-25 sm-padding-10">
+          {# **************** CONTENU ***************** #}
           {% block content %}{% endblock %}
+          {# ********************************* #}
           </div>
           <!-- END CONTAINER FLUID -->
         </div>
