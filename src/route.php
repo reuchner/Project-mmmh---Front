@@ -39,6 +39,10 @@ $app->get("/filtre", function() use ($app){
     return $app["twig"]->render("pages/filtre.html.twig", array());
 })->bind("filtre");
 
+// $app->get("/gestion", function() use ($app){
+//     return $app["twig"]->render("pages/gestion.html.twig", array());
+// })->bind("gestion");
+
 
 
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
