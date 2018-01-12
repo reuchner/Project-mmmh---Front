@@ -1,0 +1,35 @@
+{% extends "layout-login.html.twig" %}
+
+{% block formDashboard %}
+        <form id="form-login" class="p-t-15" role="form" action="{{ path('home') }}">
+            <!-- START Form Control-->
+            <div class="form-group form-group-default">
+              <label>Login</label>
+              <div class="controls">
+                <input type="text" name="username" placeholder="User Name" class="form-control" required>
+              </div>
+            </div>
+            <!-- END Form Control-->
+            <!-- START Form Control-->
+            <div class="form-group form-group-default">
+              <label>Password</label>
+              <div class="controls">
+                <input type="password" class="form-control" name="password" placeholder="Credentials" required>
+              </div>
+            </div>
+            <!-- START Form Control-->
+            <div class="row">
+              <div class="col-md-6 no-padding sm-p-l-10">
+                <div class="checkbox ">
+                  <input type="checkbox" value="1" id="checkbox1">
+                  <label for="checkbox1">Keep Me Signed in</label>
+                </div>
+              </div>
+              <div class="col-md-6 d-flex align-items-center justify-content-end">
+                <a href="#" class="text-info small">Help? Contact Support</a>
+              </div>
+            </div>
+            <!-- END Form Control-->
+            <button class="btn btn-primary btn-cons m-t-10" type="submit" >Sign in</button>
+          </form>                      
+{% endblock %}

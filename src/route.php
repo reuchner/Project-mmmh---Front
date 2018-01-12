@@ -10,12 +10,16 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 //home
 
 $app->get('/', function () use ($app) {
-    return $app['twig']->render('layout-home.html.twig', array());
+    return $app['twig']->render('pages/home.html.twig', array());
+})
+->bind('home');
+$app->get('/home', function () use ($app) {
+    return $app['twig']->render('pages/home.html.twig', array());
 })
 ->bind('home');
 
 $app->get("/login", function() use ($app){
-    return $app["twig"]->render("layout-login.html.twig", array());
+    return $app["twig"]->render("pages/login.html.twig", array());
 })->bind("login");
 
 $app->get("/register", function() use ($app){
