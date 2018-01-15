@@ -8,5 +8,5 @@
     $app = new Application();
     require __DIR__.'/../src/register.php';
     require __DIR__.'/../src/route.php';
-    $app['debug'] = true;
+    //$app['debug'] = true;
     $app->run();

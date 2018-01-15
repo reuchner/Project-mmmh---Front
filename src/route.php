@@ -77,7 +77,7 @@ $app->error(function (\Exception $e, Request $request, $code) use ($app) {
         'errors/'.$code.'.html.twig',
         'errors/'.substr($code, 0, 2).'x.html.twig',
         'errors/'.substr($code, 0, 1).'xx.html.twig',
-        'errors/default.html.twig',
+        'errors/error.html.twig',
     );
 
     return new Response($app['twig']->resolveTemplate($templates)->render(array('code' => $code)), $code);
