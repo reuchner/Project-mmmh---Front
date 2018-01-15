@@ -86,44 +86,40 @@
                     <span class="icon-thumbnail"><i class="pg-mail"></i></span>
                 </li>
                 {# -- MENU Expert -- #} 
-                {# {% if user == expert %} #} 
-                {% block menu %}{% endblock %}
+                {# {% if user == 'expert' %}  
+                {% include "menu/menuExpert.html.twig" %}  #}
                 <li>
                     <a href="javascript:;"><span class="title">Experts</span>
                     <span class=" arrow"></span></a>
-                    <span class="icon-thumbnail"><i class="pg-calender"></i></span>
+                    <span class="icon-thumbnail">E</i></span>
                     <ul class="sub-menu">
                         <li class="">
                             <a href="{{ path('profil') }}">Edition du profil</a>
-                            <span class="icon-thumbnail"></span>
+                            <span class="icon-thumbnail"><i class="pg-calender"></i></span>
                         </li>
                         <li class="">
-                            <a href="">Consomateurs</a>
-                            <span class="icon-thumbnail"></span>
+                            <a href="{{ path('question') }}">Questions consomateurs</a>
+                            <span class="icon-thumbnail"><i class="sl-list"></i></span>
                         </li>
                         <li class="">
-                            <a href="">Contenu</a>
+                            <a href="">Ajouter du Contenu </a>
                             <span class="icon-thumbnail"></span>
                         </li>
                         <li class="">
                             <a href="">Reponses envoyé</a>
                             <span class="icon-thumbnail">P</span>
                         </li>
-                        <li class="">
-                            <a href="">Documentation</a>
-                            <span class="icon-thumbnail">D</span>
-                        </li>
                     </ul>
                 </li>
-                {# {% endif %} #} 
+                {# {% endif %}   #}
                 {# -- MENU Membre Mmmhh -- #}
                 <li>
                     <a href="javascript:;"><span class="title">Membre</span>
                     <span class=" arrow"></span></a>
-                    <span class="icon-thumbnail"><i class="pg-calender"></i></span>
+                    <span class="icon-thumbnail">M</span>
                     <ul class="sub-menu">
                         <li class="">
-                            <a href="calendar.html">Assigner Reponses</a>
+                            <a href="">Assigner Reponses</a>
                             <span class="icon-thumbnail"></span>
                         </li>
                         <li class="">
@@ -139,7 +135,7 @@
                             <span class="icon-thumbnail">P</span>
                         </li>
                         <li class="">
-                            <a href="">Voir consomateurs</a>
+                            <a href="{{ path('listeConso') }}">Liste consomateurs</a>
                             <span class="icon-thumbnail">D</span>
                         </li>
                     </ul>
@@ -149,7 +145,7 @@
                 <li>
                     <a href="javascript:;"><span class="title">Admin</span>
             <span class=" arrow"></span></a>
-                    <span class="icon-thumbnail"><i class="pg-calender"></i></span>
+                    <span class="icon-thumbnail">A</span>
                     <ul class="sub-menu">
                         <li class="">
                             <a href="{{ path('formEquipe') }}">Gestion membres</a>

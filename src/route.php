@@ -11,7 +11,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 //home
 $app->get('/', function () use ($app) {
     return $app['twig']->render('pages/home.html.twig', array(
-        // 'status'=> "Expert",
+        // 'user'=> "expert",
         // 'prenom'=> "Pierre",
         // 'nom'=> "Paul"
     ));
@@ -36,6 +36,9 @@ $app->get("/register", function() use ($app){
 $app->get("/profil", function() use ($app){
     return $app["twig"]->render("pages/pagesExpert/profil.html.twig", array());
 })->bind("profil");
+$app->get("/question", function() use ($app){
+    return $app["twig"]->render("pages/pagesExpert/questionConso.html.twig", array());
+})->bind("question");
 
 
 //page Admin
@@ -54,6 +57,9 @@ $app->get("/filtre", function() use ($app){
 $app->get("/reponse", function() use ($app){
     return $app["twig"]->render("pages/pageMembre/gestionReponse.html.twig", array());
 })->bind("reponse");
+$app->get("/listeConso", function() use ($app){
+    return $app["twig"]->render("pages/pageMembre/listeConso.html.twig", array());
+})->bind("listeConso");
 
 // $app->get("/gestion", function() use ($app){
 //     return $app["twig"]->render("pages/gestion.html.twig", array());
