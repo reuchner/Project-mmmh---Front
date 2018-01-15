@@ -1,0 +1,55 @@
+
+{% extends "layout-home.html.twig" %}
+{% block headTitle %}Gestion reponses{% endblock  %}
+{% block content %}
+    <div class=" container-fluid   container-fixed-lg bg-white">
+    <div class="card card-transparent">
+        <div class="card-header ">
+            <div class="card-title">Pages Default Tables Style
+            </div>
+        </div>
+        <div class="card-block">
+            <div class="table-responsive">
+                <table class="table table-hover" id="basicTable">
+                    <thead>
+                        <tr>
+
+                            <th style="width:20%">Reponse</th>
+                            <th style="width:20%">Experts</th>
+                            <th style="width:29%">Reponse</th>
+                            <th style="width:15%">Tags/Domaine</th>
+                            <th style="width:15%">Last Update</th>
+                            <th style="width:1%" class="text-center">
+                                <button class="btn btn-link"><i class="pg-trash"></i></button>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="v-align-middle ">
+                                <p>First Tour</p>
+                            </td>
+                            <td class="v-align-middle ">
+                                <p>First Tour</p>
+                            </td>
+                            <td class="v-align-middle">
+                                <p>United States, India, China,Africa</p>
+                            </td>
+                            <td class="v-align-middle">
+                                <p>it is more then ONE nation/nationality as its fall name is The United Kingdom of Great Britain and North Ireland..</p>
+                            </td>
+                            <td class="v-align-middle">
+                                <p>Public</p>
+                            </td>
+                            <td class="v-align-middle">
+                                <p>April 13,2014 10:13</p>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

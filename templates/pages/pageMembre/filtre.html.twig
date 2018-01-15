@@ -1,0 +1,29 @@
+{% extends "layout-home.html.twig" %} {% block content %}
+<div class="card card-default">
+    <div class="card-header ">
+        <div class="card-title">Tag Input
+        </div>
+        <div class="tools">
+            <a class="collapse" href="javascript:;"></a>
+            <a class="config" data-toggle="modal" href="#grid-config"></a>
+            <a class="reload" href="javascript:;"></a>
+            <a class="remove" href="javascript:;"></a>
+        </div>
+    </div>
+    <div class="card-block">
+        <p>Do you use tags to organize content on your site? This plugin will turn your boring tag list into a magical input that turns each tag into a style-able object with its own delete link.
+        </p>
+        <br>
+        <input class="tagsinput custom-tag-input" type="text" value="Amsterdam,Washington" style="display: none;">
+        <div class="bootstrap-tagsinput"><span class="tag label label-info">Amsterdam<span data-role="remove"></span></span> <span class="tag label label-info">Washington<span data-role="remove"></span></span> <input size="1" type="text"></div>
+        <input class="tagsinput custom-tag-input" type="text" value="johnsmith@pages.io,janesmith@pages.io" style="display: none;">
+        <div class="bootstrap-tagsinput"><span class="tag label label-info">johnsmith@pages.io<span data-role="remove"></span></span> <span class="tag label label-info">janesmith@pages.io<span data-role="remove"></span></span> <input size="1" type="text"></div>
+        <div class="form-group form-group-default required ">
+            <label>Tags</label>
+            <input class="tagsinput custom-tag-input" type="text" value="hello World, quotes, inspiration" style="display: none;">
+            <div class="bootstrap-tagsinput"><span class="tag label label-info">hello World<span data-role="remove"></span></span> <span class="tag label label-info"> quotes<span data-role="remove"></span></span> <span class="tag label label-info"> inspiration<span data-role="remove"></span></span>
+                <input size="1" type="text"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

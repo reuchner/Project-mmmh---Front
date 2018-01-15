@@ -7,11 +7,17 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 //Request::setTrustedProxies(array('127.0.0.1'));
+
 //home
 $app->get('/', function () use ($app) {
-    return $app['twig']->render('pages/home.html.twig', array());
+    return $app['twig']->render('pages/home.html.twig', array(
+        // 'status'=> "Expert",
+        // 'prenom'=> "Pierre",
+        // 'nom'=> "Paul"
+    ));
 })
-->bind('home');
+->bind('');
+
 $app->get('/home', function () use ($app) {
     return $app['twig']->render('pages/home.html.twig', array());
 })
@@ -26,18 +32,28 @@ $app->get("/register", function() use ($app){
     return $app["twig"]->render("login-register/register.html.twig", array());
 })->bind("register");
 
-//page
+//page Expert
+$app->get("/profil", function() use ($app){
+    return $app["twig"]->render("pages/pagesExpert/profil.html.twig", array());
+})->bind("profil");
+
+
+//page Admin
 $app->get("/formExpert", function() use ($app){
-    return $app["twig"]->render("pages/formExpert.html.twig", array());
+    return $app["twig"]->render("pages/pageAdmin/formExpert.html.twig", array());
 })->bind("formExpert");
 
 $app->get("/formEquipe", function() use ($app){
-    return $app["twig"]->render("pages/formEquipe.html.twig", array());
+    return $app["twig"]->render("pages/pageAdmin/formEquipe.html.twig", array());
 })->bind("formEquipe");
 
+//page Membre
 $app->get("/filtre", function() use ($app){
-    return $app["twig"]->render("pages/filtre.html.twig", array());
+    return $app["twig"]->render("pages/pageMembre/filtre.html.twig", array());
 })->bind("filtre");
+$app->get("/reponse", function() use ($app){
+    return $app["twig"]->render("pages/pageMembre/gestionReponse.html.twig", array());
+})->bind("reponse");
 
 // $app->get("/gestion", function() use ($app){
 //     return $app["twig"]->render("pages/gestion.html.twig", array());
