@@ -21,7 +21,7 @@ $app->get('/', function () use ($app) {
 $app->get('/home', function () use ($app) {
     return $app['twig']->render('pages/home.html.twig', array());
 })
-->bind('home');
+
 
 //connexion et inscription
 $app->get("/login", function() use ($app){
@@ -39,6 +39,9 @@ $app->get("/profil", function() use ($app){
 $app->get("/question", function() use ($app){
     return $app["twig"]->render("pages/pagesExpert/questionConso.html.twig", array());
 })->bind("question");
+$app->get("/contenu", function() use ($app){
+    return $app["twig"]->render("test/ajout-contenu.html.twig", array());
+})->bind("contenu");
 
 
 //page Admin
