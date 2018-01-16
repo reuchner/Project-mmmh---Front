@@ -17,3 +17,12 @@
     });
     $app['twig.path'] = array(__DIR__.'/../templates'); // Dossier des pages Twig
     // $app['twig.options'] = array('cache' => __DIR__.'/../var/cache/twig'); // Dossier des caches des pages Twig
+
+    $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
+        'db.options' => array(
+            'host'   => 'localhost',
+            'user'     => 'root',
+            'password'     => '',
+            'dbname'     => 'marvel',
+        ),
+    ));

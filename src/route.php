@@ -16,21 +16,35 @@ $app->get('/', function () use ($app) {
         // 'nom'=> "Paul"
     ));
 })
-->bind('');
+->bind('home2')->before($isConnectNo);
 
 $app->get('/home', function () use ($app) {
     return $app['twig']->render('pages/home.html.twig', array());
-})
+})->bind("home")->before($isConnectNo);
 
 
 //connexion et inscription
 $app->get("/login", function() use ($app){
     return $app["twig"]->render("login-register/login.html.twig", array());
-})->bind("login");
-
+})->bind("login")->before($isConnectYes);
+$app->post("/login", "Webforce3\Controlleur\AuthControlleur::login");
 $app->get("/register", function() use ($app){
     return $app["twig"]->render("login-register/register.html.twig", array());
-})->bind("register");
+})->bind("register")->before($isConnectYes);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //page Expert
 $app->get("/profil", function() use ($app){
@@ -44,6 +58,23 @@ $app->get("/contenu", function() use ($app){
 })->bind("contenu");
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //page Admin
 $app->get("/formExpert", function() use ($app){
     return $app["twig"]->render("pages/pageAdmin/formExpert.html.twig", array());
@@ -52,6 +83,27 @@ $app->get("/formExpert", function() use ($app){
 $app->get("/formEquipe", function() use ($app){
     return $app["twig"]->render("pages/pageAdmin/formEquipe.html.twig", array());
 })->bind("formEquipe");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //page Membre
 $app->get("/filtre", function() use ($app){
@@ -64,9 +116,35 @@ $app->get("/listeConso", function() use ($app){
     return $app["twig"]->render("pages/pageMembre/listeConso.html.twig", array());
 })->bind("listeConso");
 
-// $app->get("/gestion", function() use ($app){
-//     return $app["twig"]->render("pages/gestion.html.twig", array());
-// })->bind("gestion");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

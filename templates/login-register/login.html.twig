@@ -1,7 +1,7 @@
 {% extends "layout-login.html.twig" %}
 
 {% block formDashboard %}
-        <form id="form-login" class="p-t-15" role="form" action="{{ path('home') }}">
+        <form id="form-login" method="POST" class="p-t-15" role="form" action="{{ path('login') }}">
             <!-- START Form Control-->
             <div class="form-group form-group-default">
               <label>Login</label>
