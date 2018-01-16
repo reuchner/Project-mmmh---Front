@@ -21,6 +21,7 @@ $app->get('/', function () use ($app) {
 $app->get('/home', function () use ($app) {
     return $app['twig']->render('pages/home.html.twig', array());
 })
+->bind('home');
 
 
 //connexion et inscription
