@@ -20,9 +20,9 @@
 
     $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
         'db.options' => array(
-            'host'   => 'localhost',
+            'host'   => 'localhost:8888',
             'user'     => 'root',
-            'password'     => '',
-            'dbname'     => 'marvel',
+            'password'     => 'root',
+            'dbname'     => 'db_mmmh',
         ),
     ));
