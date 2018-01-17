@@ -16,7 +16,7 @@ $app->get('/', function () use ($app) {
         // 'nom'=> "Paul"
     ));
 })
-->bind('home2')->before($isConnectNo);
+->bind('home')->before($isConnectNo);
 
 $app->get('/home', function () use ($app) {
     return $app['twig']->render('pages/home.html.twig', array());
@@ -34,13 +34,13 @@ $app->get("/register", function() use ($app){
 
 
 // *************  route inscription ************ //
-
+/*
 $app->get('/registerEquipe', function () use ($app){
     return $app['twig']->render('basic/register.html.twig', array());
 })->bind("registerEquipe");
 
 $app->post("/registerEquipe", "Equipe\controller\IndexController::registerAction");
-
+*/
 
 
 

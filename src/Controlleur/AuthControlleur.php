@@ -25,7 +25,7 @@
             if($user == false)
                 return $app->redirect("login");
 
-            if(md5($password) == $user['password']){
+            if($password == $user['password']){
 
                 
                 $app['db']->delete('tokens', array('user_id' => 1, "type" =>"connection"));
