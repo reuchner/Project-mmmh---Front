@@ -1,45 +1,38 @@
 {% extends "layout-login.html.twig" %}
 
+{% block login_register %}<h3 class="p-t-35">Créez un compte <span class="bold">Mmmh</span></h3>{% endblock %}
+
+
 {% block formDashboard %}
 <form id="form-register" class="p-t-15" role="form" action="{{ path('login') }}">
           <div class="row">
-            <div class="col-md-6">
-              <div class="form-group form-group-default">
-                <label>First Name</label>
-                <input type="text" name="fname" placeholder="John" class="form-control" required>
+                <div class="col-md-12">
+                  <div class="form-group form-group-default">
+                    <label>Adresse mail</label>
+                    <input type="email" name="email" placeholder="Nous vous enverrons les détails de connexion" class="form-control" required>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group form-group-default">
-                <label>Last Names</label>
-                <input type="text" name="lname" placeholder="Smith" class="form-control" required>
-              </div>
-            </div>
-          </div>
           <div class="row">
             <div class="col-md-12">
               <div class="form-group form-group-default">
-                <label>Password</label>
-                <input type="password" name="pass" placeholder="Minimum of 4 Charactors" class="form-control" required>
+                <label>Mot de passe</label>
+                <input type="password" name="pass" placeholder="Au moins 4 caractères" class="form-control" required>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group form-group-default">
-                <label>Email</label>
-                <input type="email" name="email" placeholder="We will send loging details to you" class="form-control" required>
-              </div>
+          <br>
+         
+          <div class="row m-t-12">
+            <div class="col-lg-12">
+              
+              <form action="#" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }">
+
+                <input type="checkbox" name="checkbox" value="check" id="agree" /> J'ai lu et j'accepte les termes de conditions des Conditions générales et la Politique de confidentialité. <br><br>
+
+                <button class="btn btn-primary btn-cons m-t-10" type="submit">Créez un compte</button>
+              </form> 
             </div>
           </div>
-          <div class="row m-t-10">
-            <div class="col-lg-6">
-              <p><small>I agree to the <a href="#" class="text-info">Pages Terms</a> and <a href="#" class="text-info">Privacy</a>.</small></p>
-            </div>
-            <div class="col-lg-6 text-right">
-              <a href="#" class="text-info small">Help? Contact Support</a>
-            </div>
-          </div>
-          <button class="btn btn-primary btn-cons m-t-10" type="submit">Create a new account</button>
-        </form>                     
+                    
 {% endblock %}
