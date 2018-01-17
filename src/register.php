@@ -23,6 +23,6 @@
             'host'   => 'localhost',
             'user'     => 'root',
             'password'     => '',
-            'dbname'     => 'marvel',
+            'dbname'     => 'db_mmmh',
         ),
     ));

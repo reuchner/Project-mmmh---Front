@@ -1,69 +1,75 @@
 <?php
 
-namespace Equipe\Controller;
-
+namespace Webforce3\Controlleur;
 use Silex\Application;
 
 
-    class RegisterEquipeController {
+    class RegisterController {
 
         public function registerAction(Application $app, Request $request){
             
-            var_dump($request->request);
-            die;
+            // var_dump($request->request);
+            // die;
 
 
-            $firstname = htmlspecialchars(trim($request->request->get["firstname"]));
-            $lastname = htmlspecialchars(trim($request->request->get["lastname"]));
+            $username = htmlspecialchars(trim($request->request->get["username"]));
             $password = htmlspecialchars(trim($request->request->get["password"]));
             $email = htmlspecialchars(trim($request->request->get["email"]));
 
             if(!filter_var($email, FILTER_VALIDATE_EMAIL)) // verif de l'email valide
-                return $app["twig"]->render("basic/registerEquipe.html.twig");
+                return $app["twig"]->render("login-register/register.html.twig");
+
+
+                if(strlen($password) < 4 || strlen($password) > 40)
+                return $app->redirect("register");
+
+
+                
+
 
             $app['db']->insert('user', array(
-                    'username' => $user["username"],
-                    'email' => $user["email"],
-                    'password' => md5('password')
+                    'username' => $user["firstname"],
+                    'password' => ('password'),
+                    'email' => $user["email"]
                 )
             );
         }
 
 
 
-        public function registerEquipeAction(Application $app, Request $request){
+        // public function registerEquipeAction(Application $app, Request $request){
             
-            var_dump($request->request);
-            die;
+        //     // var_dump($request->request);
+        //     // die;
 
-            $firstname = htmlspecialchars(trim($request->request->get["firstname"]));
-            $lastname = htmlspecialchars(trim($request->request->get["lastname"]));
-            $pseudo = htmlspecialchars(trim($request->request->get["pseudo"]));
-            $password = htmlspecialchars(trim($request->request->get["password"]));
-            $email = htmlspecialchars(trim($request->request->get["email"]));
-            $position = htmlspecialchars(trim($request->request->get["position"]));
-            $phone = htmlspecialchars(trim($request->request->get["phone"]));
+        //     $firstname = htmlspecialchars(trim($request->request->get["firstname"]));
+        //     $lastname = htmlspecialchars(trim($request->request->get["lastname"]));
+        //     $pseudo = htmlspecialchars(trim($request->request->get["pseudo"]));
+        //     $password = htmlspecialchars(trim($request->request->get["password"]));
+        //     $email = htmlspecialchars(trim($request->request->get["email"]));
+        //     $position = htmlspecialchars(trim($request->request->get["position"]));
+        //     $phone = htmlspecialchars(trim($request->request->get["phone"]));
 
-            if(!filter_var($email, FILTER_VALIDATE_EMAIL)) // verif de l'email valide
-                return $app["twig"]->render("basic/registerEquipe.html.twig");
+        //     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) // verif de l'email valide
+        //         return $app["twig"]->render("basic/registerEquipe.html.twig");
 
-            $app['db']->insert('equipe', array(
-                    'firstname' => $user["firstname"],
-                    'lastname' => $user["lastname"],
-                    'pseudo' => md5('pseudo'),
-                    'password' => $user["password"],
-                    'email' => $user["email"],
-                    'position' => $user["position"],
-                    'phone' => $user["phone"],
-                )
-            );
-        }
+        //     $app['db']->insert('equipe', array(
+        //             'firstname' => $user["firstname"],
+        //             'lastname' => $user["lastname"],
+        //             'pseudo' => md5('pseudo'),
+        //             'password' => $user["password"],
+        //             'email' => $user["email"],
+        //             'position' => $user["position"],
+        //             'phone' => $user["phone"],
+        //         )
+        //     );
+        // }
         
         
         public function verifEmail(Application $app, Request $request){
 
-            var_dump($request->request);
-            die;
+            // var_dump($request->request);
+            // die;
  
             $email = htmlspecialchars(trim($request->request->get["email"]));
 
