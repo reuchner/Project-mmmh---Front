@@ -31,3 +31,12 @@ $isConnectNo = function (Request $request, Application $app) {
         return $app->redirect("login");
         // return new RedirectResponse('/login');
 };
+
+
+
+//******** verifParamLogin ******* */
+
+$verifParamLogin = function (Request $request) {
+    $retour = verifParam($request->request, array("firstname", "lastname", "pseudo", "password", "email", "position", "phone"));
+    var_dump($retour);
+};

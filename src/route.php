@@ -23,7 +23,7 @@ $app->get('/home', function () use ($app) {
 })->bind("home")->before($isConnectNo);
 
 
-//connexion et inscription
+//connexion 
 $app->get("/login", function() use ($app){
     return $app["twig"]->render("login-register/login.html.twig", array());
 })->bind("login")->before($isConnectYes);
@@ -33,8 +33,13 @@ $app->get("/register", function() use ($app){
 })->bind("register")->before($isConnectYes);
 
 
+// *************  route inscription ************ //
 
+$app->get('/registerEquipe', function () use ($app){
+    return $app['twig']->render('basic/register.html.twig', array());
+})->bind("registerEquipe");
 
+$app->post("/registerEquipe", "Equipe\controller\IndexController::registerAction");
 
 
 
