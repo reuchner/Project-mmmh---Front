@@ -1,20 +1,21 @@
 {% extends "layout-login.html.twig" %}
+{% block login_register %}<h3 class="p-t-35">Connectez-vous sur votre compte <span class="bold">Mmmh</span></h3>{% endblock %}
 
 {% block formDashboard %}
         <form id="form-login" method="POST" class="p-t-15" role="form" action="{{ path('login') }}">
             <!-- START Form Control-->
             <div class="form-group form-group-default">
-              <label>Login</label>
+              <label>Adresse mail</label>
               <div class="controls">
-                <input type="text" name="username" placeholder="User Name" class="form-control" required>
+                <input type="text" name="username" placeholder="nom@exemple.fr" class="form-control" required>
               </div>
             </div>
             <!-- END Form Control-->
             <!-- START Form Control-->
             <div class="form-group form-group-default">
-              <label>Password</label>
+              <label>Mot de passe</label>
               <div class="controls">
-                <input type="password" class="form-control" name="password" placeholder="Credentials" required>
+                <input type="password" class="form-control" name="password" placeholder="Saissiez votre mot de passe" required>
               </div>
             </div>
             <!-- START Form Control-->
@@ -25,10 +26,10 @@
                 </div>
               </div>
               <div class="col-md-6 d-flex align-items-center justify-content-end">
-                <a href="{{ path('register') }}" class="text-info small">Mots de passe oublié?</a>
+                <a href="{{ path('register') }}" class="text-info small">Mot de passe oublié?</a>
               </div>
             </div>
             <!-- END Form Control-->
-            <button class="btn btn-primary btn-cons m-t-10" type="submit" >Sign in</button>
+            <button class="btn btn-primary btn-cons m-t-10" type="submit" >Connexion</button>
           </form>                      
 {% endblock %}
