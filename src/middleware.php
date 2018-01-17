@@ -34,7 +34,9 @@ $isConnectNo = function (Request $request, Application $app) {
 
 //******** verifParamLogin ******* */
 
-// $verifParamLogin = function (Request $request) {
-//     $retour = verifParam($request->request, array("firstname", "lastname", "pseudo", "password", "email", "position", "phone"));
-//     var_dump($retour);
-// };
+
+$verifParamLogin = function (Request $request) {
+    $retour = verifParam($request->request, array("username", "pseudo", "password", "email"));
+    var_dump($retour);
+};
+

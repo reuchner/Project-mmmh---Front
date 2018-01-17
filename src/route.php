@@ -34,13 +34,15 @@ $app->get("/register", function() use ($app){
 
 
 // *************  route inscription ************ //
-/*
-$app->get('/registerEquipe', function () use ($app){
-    return $app['twig']->render('basic/register.html.twig', array());
-})->bind("registerEquipe");
 
-$app->post("/registerEquipe", "Equipe\controller\IndexController::registerAction");
-*/
+
+$app->get('/register', function () use ($app){
+    return $app['twig']->render('login-register/register.html.twig', array());
+})->bind("register");
+
+$app->post("/register", "Webforce3\Controlleur\IndexController::registerAction");
+
+
 
 
 
