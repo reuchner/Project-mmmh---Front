@@ -40,7 +40,7 @@ $app->get('/register', function () use ($app){
     return $app['twig']->render('login-register/register.html.twig', array());
 })->bind("register");
 
-$app->post("/register", "Webforce3\Controlleur\IndexController::registerAction");
+$app->post("/register", "Webforce3\Controlleur\RegisterController::registerAction");
 
 
 

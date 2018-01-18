@@ -1,6 +1,8 @@
 <?php
 
 namespace Webforce3\Controlleur;
+
+use Symfony\Component\HttpFoundation\Request;
 use Silex\Application;
 
 
@@ -21,16 +23,16 @@ use Silex\Application;
 
 
                 if(strlen($password) < 4 || strlen($password) > 40)
-                return $app->redirect("register");
+                return $app->redirect("mdp trop court ou trop long");
 
 
                 
 
 
             $app['db']->insert('user', array(
-                    'username' => $user["firstname"],
-                    'password' => ('password'),
-                    'email' => $user["email"]
+                    'username' => $user["username"],
+                    'email' => $user["email"],
+                    'password' => md5('password'),
                 )
             );
         }

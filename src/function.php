@@ -2,7 +2,7 @@
 
     
 
-    function register(array $user, $app){ // Typage donnée en sortie (Null ou string);
+    function registerVerif(array $user, $app){ // Typage donnée en sortie (Null ou string);
 
         if(!isset($user["username"]) || !isset($user["password"]) || !isset($user["email"]) ) // Verificaion de l'existance des key dans l'array
             return false;

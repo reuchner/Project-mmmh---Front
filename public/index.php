@@ -12,4 +12,6 @@
     require __DIR__.'/../src/middleware.php';
     require __DIR__.'/../src/route.php';
     require __DIR__.'/../src/Controlleur/AuthControlleur.php';
+    require __DIR__.'/../src/Controlleur/RegisterController.php';
+    
     $app->run();
