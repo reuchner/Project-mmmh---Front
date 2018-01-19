@@ -1,45 +1,47 @@
-{% extends "layout-login.html.twig" %}
-
-{% block login_register %}<h3 class="p-t-35">Créez un compte <span class="bold">Mmmh</span></h3>{% endblock %}
-
-
-{% block formDashboard %}
-<form id="form-register" class="p-t-15" role="form" action="{{ path('login') }}">
-          <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group form-group-default">
-                    <label>Username</label>
-                    <input type="text" name="username" placeholder="Nous vous enverrons les détails de connexion" class="form-control" required>
-                  </div>
-                </div>
-              </div>
-          <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group form-group-default">
-                    <label>Adresse mail</label>
-                    <input type="email" name="email" placeholder="Nous vous enverrons les détails de connexion" class="form-control" required>
-                  </div>
-                </div>
-              </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group form-group-default">
-                <label>Mot de passe</label>
-                <input type="password" name="pass" placeholder="Au moins 4 caractères" class="form-control" required>
-              </div>
+{% extends "layout-login.html.twig" %} {% block login_register %}
+<h3 class="p-t-35">Créez un compte <span class="bold">Mmmh</span></h3>{% endblock %} {% block formDashboard %}
+<form id="form-register" class="p-t-15" role="form" method="POST" action="{{ path('register') }}">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group form-group-default">
+                <label>Username</label>
+                <input type="text" name="username" placeholder="Nous vous enverrons les détails de connexion" class="form-control" required>
             </div>
-          </div>
-          <br>
-          <div class="row m-t-12">
-            <div class="col-lg-12">
-              
-              <form action="#" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group form-group-default">
+                <label>Adresse mail</label>
+                <input type="email" name="email" placeholder="Nous vous enverrons les détails de connexion" class="form-control" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group form-group-default">
+                <label>Mot de passe</label>
+                <input type="password" name="password" placeholder="Au moins 4 caractères" class="form-control" required>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row m-t-12">
+        <div class="col-lg-12">
+            <form action="#" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }">
 
                 <input type="checkbox" name="checkbox" value="check" id="agree" /> J'ai lu et j'accepte les termes de conditions des Conditions générales et la Politique de confidentialité. <br><br>
 
                 <button class="btn btn-primary btn-cons m-t-10" type="submit">Créez un compte</button>
-              </form> 
-            </div>
-          </div>
-                    
+                {# <div class="row">
+                    <div class="col-md-6 no-padding sm-p-l-10">
+                        <div class="checkbox ">
+                            <a href="{{ path('login') }}" class="text-info small">connexion</a>
+                        </div>
+                    </div>
+                </div> #}
+            </form>
+        </div>
+    </div>
+</form>
 {% endblock %}

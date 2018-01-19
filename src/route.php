@@ -18,6 +18,16 @@ $app->get('/', function () use ($app) {
 })
 ->bind('home')->before($isConnectNo);
 
+$app->get('/logout', function () use ($app) {
+    setcookie('mmmh', NULL, -1); // Modification du cookie( Valeur null et temps -1)
+    unset($_COOKIE['mmmh']); // Suppression de la variable COOKIE
+    unset($_SESSION["user"]); // Suppression de la variable SESSION
+    session_destroy(); // Suppression de la SESSION
+    return $app->redirect("login"); // Redirection
+})->bind("logout");
+
+
+
 $app->get('/home', function () use ($app) {
     return $app['twig']->render('pages/home.html.twig', array());
 })->bind("home")->before($isConnectNo);
@@ -28,9 +38,14 @@ $app->get("/login", function() use ($app){
     return $app["twig"]->render("login-register/login.html.twig", array());
 })->bind("login")->before($isConnectYes);
 $app->post("/login", "Webforce3\Controlleur\AuthControlleur::login");
+
+
+
 $app->get("/register", function() use ($app){
     return $app["twig"]->render("login-register/register.html.twig", array());
 })->bind("register")->before($isConnectYes);
+$app->post("/register", "Webforce3\Controlleur\AuthControlleur::register");
+
 
 
 // *************  route inscription ************ //

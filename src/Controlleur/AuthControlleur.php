@@ -25,10 +25,10 @@
             if($user == false)
                 return $app->redirect("login");
 
-            if($password == $user['password']){
+            if(md5($password) == $user['password']){
 
                 
-                $app['db']->delete('tokens', array('user_id' => 1, "type" =>"connection"));
+                $app['db']->delete('tokens', array('user_id' => $user['id']));
 
                 $token = $this->generateToken();
                 $dateExpire = $this->expireToken();
@@ -52,7 +52,34 @@
         }
 
 
+        public function register(Request $request, Application $app){
+
+            $username = strip_tags(trim($request->get("username")));
+            $email = strip_tags(trim($request->get("email")));
+            $password = strip_tags(trim($request->get("password")));
+
+            if(strlen($username) < 2 || strlen($email) < 4 || strlen($password) < 4)
+                return "1";
+
+            if(!filter_var($email, FILTER_VALIDATE_EMAIL)) // Verification de l'email
+                return "2";
+
+            $sql = "SELECT * FROM user WHERE email = ?";
+            $user = $app['db']->fetchAssoc($sql, array((string)$email));
+            if($user != false)
+                return "3";
+
+
+            $app['db']->insert('user', array(
+                'username' => $username,
+                'email' => $email,
+                'password' => md5($password),
+                )
+            );
+            
+            return $app->redirect("login");
         
+        }
 
 
         private function generateToken(){
