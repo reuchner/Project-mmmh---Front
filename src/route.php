@@ -44,9 +44,16 @@ $app->post("/registerEquipe", "Equipe\controller\IndexController::registerAction
 
 
 
+// *************  ajout contenu ************ //
+
+$app->get("/ajout_recette", function() use ($app){
+    return $app["twig"]->render("pages/ajout-recette.html.twig", array());
+})->bind("ajout_recette");
 
 
-
+$app->get("/ajout_conseil", function() use ($app){
+    return $app["twig"]->render("pages/ajout-conseil.html.twig", array());
+})->bind("ajout_conseil");
 
 
 
