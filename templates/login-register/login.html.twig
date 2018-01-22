@@ -1,32 +1,37 @@
 {% extends "layout-login.html.twig" %}
-{% block login_register %}<h3 class="p-t-35">Connectez-vous sur votre compte <span class="bold">Mmmh!</span></h3>{% endblock %}
+
+{% block title %}Connectez-vous à Mmmh!{% endblock %}
+
+{% block login_register %}Connectez-vous{% endblock %} 
 
 {% block formDashboard %}
-        <form id="form-login" method="POST" class="p-t-15" role="form" action="{{ path('login') }}">
-            <!-- START Form Control-->
-            <div class="form-group form-group-default">
-              <label>Adresse mail</label>
-              <div class="controls">
-                <input type="text" name="username" placeholder="nom@exemple.fr" class="form-control" required>
-              </div>
-            </div>
-            <!-- END Form Control-->
-            <!-- START Form Control-->
-            <div class="form-group form-group-default">
-              <label>Mot de passe</label>
-              <div class="controls">
-                <input type="password" class="form-control" name="password" placeholder="Saissiez votre mot de passe" required>
-              </div>
-            </div>
-            <!-- START Form Control-->
-            <div class="row">
-              <div class="col-md-6 no-padding sm-p-l-10">
-                <div class="checkbox ">
-                  <a href="{{ path('register') }}" class="text-info small">Inscription</a>
-                </div>
-              </div>
-            </div>
-            <!-- END Form Control-->
-            <button class="btn btn-primary btn-cons m-t-10" type="submit" >Connexion</button>
-          </form>                      
+  <form id="form-login" method="POST" class="p-t-15" role="form" action="{{ path('login') }}">
+      <!-- EMAIL -->
+      <div class="form-group form-group-default">
+        <label>Adresse mail</label>
+        <div class="controls">
+          <input type="text" name="username" placeholder="nom@exemple.fr" class="form-control" required>
+        </div>
+      </div>
+      
+      <!-- MOT DE PASSE-->
+      <div class="form-group form-group-default">
+        <label>Mot de passe</label>
+        <div class="controls">
+          <input type="password" class="form-control" name="password" placeholder="Saissiez votre mot de passe" required>
+        </div>
+      </div>
+
+      <!-- INSCRIPTION-->
+      <div class="row">
+        <div class="col-md-6 no-padding sm-p-l-10">
+          <div class="checkbox ">
+            <a href="{{ path('register') }}" class="text-info small">Inscription</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- CONNEXION -->
+      <button class="btn btn-primary btn-cons m-t-10" type="submit" >Connexion</button>
+    </form>                      
 {% endblock %}
