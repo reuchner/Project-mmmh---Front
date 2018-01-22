@@ -59,15 +59,15 @@
             $password = strip_tags(trim($request->get("password")));
 
             if(strlen($username) < 2 || strlen($email) < 4 || strlen($password) < 4)
-                return "1";
+                return $app->redirect("register");
 
             if(!filter_var($email, FILTER_VALIDATE_EMAIL)) // Verification de l'email
-                return "2";
+                return $app->redirect("register");
 
             $sql = "SELECT * FROM user WHERE email = ?";
             $user = $app['db']->fetchAssoc($sql, array((string)$email));
             if($user != false)
-                return "3";
+                return $app->redirect("register");
 
 
             $app['db']->insert('user', array(
