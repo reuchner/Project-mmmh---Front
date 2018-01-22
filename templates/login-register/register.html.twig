@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "layout-login.html.twig" %} {% block login_register %}
 <h3 class="p-t-35">Créez un compte <span class="bold">Mmmh</span></h3>{% endblock %} {% block formDashboard %}
 <form id="form-register" class="p-t-15" role="form" method="POST" action="{{ path('register') }}">
@@ -20,6 +21,26 @@
     <div class="row">
         <div class="col-md-12">
             <div class="form-group form-group-default">
+=======
+{% extends "layout-login.html.twig" %}
+
+{% block login_register %}<h3 class="p-t-35">Créez un compte <span class="bold">Mmmh!</span></h3>{% endblock %}
+
+
+{% block formDashboard %}
+<form id="form-register" class="p-t-15" role="form" action="{{ path('login') }}">
+          <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group form-group-default">
+                    <label>Adresse mail</label>
+                    <input type="email" name="email" placeholder="Nous vous enverrons les détails de connexion" class="form-control" required>
+                  </div>
+                </div>
+              </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group form-group-default">
+>>>>>>> e7a13cba33c2d61445fe8bca9e3a0b7d44013d1d
                 <label>Mot de passe</label>
                 <input type="password" name="password" placeholder="Au moins 4 caractères" class="form-control" required>
             </div>
