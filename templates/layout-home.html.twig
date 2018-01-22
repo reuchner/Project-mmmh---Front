@@ -29,8 +29,8 @@
     <link href="{{ asset ('assets/plugins/jquery-metrojs/MetroJs.css')}}" rel="stylesheet" type="text/css" media="screen" />
     <link href="{{ asset ('pages/css/pages-icons.css')}}" rel="stylesheet" type="text/css">
     <link class="main-stylesheet" href="{{ asset ('pages/css/pages.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset ('assets/css/style.css')}}" rel="stylesheet" type="text/css" />
-    {% block head %}{% endblock %} 
+    <link href="{{ asset ('assets/css/style.css')}}" rel="stylesheet" type="text/css" /> 
+    {% block head %}{% endblock %}
 
 </head>
 
@@ -76,6 +76,21 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="javascript:;"><span class="title">Admin</span>
+                    <span class=" arrow"></span></a>
+                    <span class="icon-thumbnail">A</span>
+                    <ul class="sub-menu">
+                        <li class="">
+                            <a href="{{ path('ajoutMembre') }}">Gestion membres</a>
+                            <span class="icon-thumbnail"></span>
+                        </li>
+                        <li class="">
+                            <a href="{{ path('listeMembre') }}">Liste membres</a>
+                            <span class="icon-thumbnail"></span>
+                        </li>
+                    </ul>
+                </li>
                 <li class="">
                     <a href="{{ path('logout') }}" target="_blank"><span class="title">Deconnexion</span></a>
                     <span class="icon-thumbnail"><i class="pg-power"></i></span>
@@ -97,7 +112,8 @@
             <!-- END MOBILE SIDEBAR TOGGLE -->
             <div class="">
                 <div class="brand inline">
-                    {# <h3 class="bold">Mmmh!</h3> #}
+                    {#
+                    <h3 class="bold">Mmmh!</h3> #}
                     <img width="117" height="33" src="//res.cloudinary.com/hrscywv4p/image/upload/c_limit,fl_lossy,h_1440,w_720,f_auto,q_auto/v1/870792/ckv6azvhom4qmqhxg82n.png">
                 </div>
                 <!-- START NOTIFICATION LIST -->
@@ -124,7 +140,7 @@
                     </div>
                 </div>
                 <!-- END User Info-->
-                
+
             </div>
         </div>
         <!-- END HEADER -->
@@ -134,12 +150,8 @@
             <div class="content sm-gutter">
                 <!-- START CONTAINER FLUID -->
                 <div class="container-fluid padding-25 sm-padding-10">
-                    {# ***************************************************** #}
-                    {# **************** CONTENU DE LA PAGE ***************** #} 
-                    {# ***************************************************** #}
-                    {% block content %}{% endblock %} 
-                    {# ***************************************************** #}
-                    {# ***************************************************** #}
+                    {# ***************************************************** #} {# **************** CONTENU DE LA PAGE ***************** #} {# ***************************************************** #} {% block content %}{% endblock %} {# *****************************************************
+                    #} {# ***************************************************** #}
                 </div>
                 <!-- END CONTAINER FLUID -->
             </div>
@@ -148,7 +160,7 @@
             <!-- START COPYRIGHT -->
 
             <!-- START CONTAINER FLUID -->
-            
+
             <!-- START CONTAINER FLUID -->
             <div class=" container-fluid  container-fixed-lg footer">
                 <div class="copyright sm-text-center">
@@ -168,7 +180,7 @@
     <!-- END PAGE CONTAINER -->
 
     <!--START QUICKVIEW -->
-    
+
     <!-- END QUICKVIEW-->
     <!-- START OVERLAY -->
     <div class="overlay hide" data-pages="search">
