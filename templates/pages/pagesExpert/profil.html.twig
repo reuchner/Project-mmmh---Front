@@ -1,17 +1,21 @@
  {% extends "layout-home.html.twig" %} 
- {% block headTitle %}Edition du profil{% endblock %} 
+ {% block headTitle %}Edition du profil{% endblock %} <!-- ALREADY IN <title> TAGS -->
  {% block content %}
+
 <h1>Profil</h1>
 <form role="form">
     <div class="row">
+        <!-- PSEUDO -->
         <div class="col-md-6">
             <div class="form-group form-group-default ">
                 <label>Pseudo</label>
                 <input type="text" id="pseudo" name="pseudo" class="form-control" required>
             </div>
         </div>
+
+        <!-- STATUT -->
         <div class="col-md-6">
-                <label>Status</label>
+                <label>Statut</label>
                 <select class="cs-select cs-skin-slide" data-init-plugin="cs-select">
                         <option value="admin">Admin</option>
                         <option value="membre">Membre</option>
@@ -20,12 +24,14 @@
         </div>
     </div>
     <div class="row">
+        <!-- FIRST NAME -->
         <div class="col-md-6">
             <div class="form-group form-group-default">
                 <label>Prénom</label>
                 <input type="text" id="firstname" name="firstname" class="form-control" required>
             </div>
         </div>
+        <!-- LAST NAME -->
         <div class="col-md-6">
             <div class="form-group form-group-default">
                 <label>Nom</label>
@@ -35,12 +41,15 @@
     </div>
 
     <div class="row">
+    <!-- PASSWORD -->
         <div class="col-md-6">
             <div class="form-group form-group-default">
                 <label>Mot de passe</label>
                 <input type="password" id="lastname" name="lastname" class="form-control" required>
             </div>
         </div>
+
+        <!-- EMAIL -->
         <div class="col-md-6">
             <div class="form-group form-group-default">
                 <label>Email</label>
@@ -48,20 +57,21 @@
             </div>
         </div>
     </div>
-
+    <!-- TELEPHONE -->
     <div class="form-group form-group-default">
         <label>Numéro de téléphone</label>
         <input type="tel" id="phone" name="phone" class="form-control" required>
     </div>
 
     <div class="row">
+    <!-- PROFESSION -->
         <div class="col-sm-6">
             <div class="form-group form-group-default">
                 <label>Profession</label>
                 <input type="text" id="profession" name="profession" class="form-control" required>
             </div>
         </div>
-
+    <!-- EXPERTISE -->
         <div class="col-sm-6">
             <div class="form-group form-group-default">
                 <label>Domaine d'expertise</label>
@@ -69,9 +79,9 @@
             </div>
         </div>
     </div>
-    <!-- Validation -->
+    <!-- VALIDATION -->
     <button class="btn btn-primary btn-animated from-left fa fa-check" type="button">
-                <span>Enregistrer</span>
-            </button>
+        <span>Enregistrer</span>
+    </button>
 </form>
-{% endblock %} {# {% block contentTable %}{% endblock %} #}
+{% endblock %} 

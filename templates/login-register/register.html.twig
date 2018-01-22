@@ -1,14 +1,14 @@
-{% extends "layout-login.html.twig" %} {% block login_register %}
-<h3 class="p-t-35">Créez un compte <span class="bold">Mmmh</span></h3>{% endblock %} {% block formDashboard %}
+{% extends "layout-login.html.twig" %}
+
+{% block title %}Inscrivez-vous à Mmmh!{% endblock %}
+
+{% block login_register %}Créez un compte{% endblock %} 
+
+{% block formDashboard %}
+
 <form id="form-register" class="p-t-15" role="form" method="POST" action="{{ path('register') }}">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="form-group form-group-default">
-                <label>Username</label>
-                <input type="text" name="username" placeholder="Nous vous enverrons les détails de connexion" class="form-control" required>
-            </div>
-        </div>
-    </div>
+
+    <!-- EMAIL --> 
     <div class="row">
         <div class="col-md-12">
             <div class="form-group form-group-default">
@@ -17,6 +17,8 @@
             </div>
         </div>
     </div>
+
+    <!-- PASSWORD --> 
     <div class="row">
         <div class="col-md-12">
             <div class="form-group form-group-default">
@@ -26,6 +28,7 @@
         </div>
     </div>
     <br>
+    <!-- CONNEXION --> 
     <div class="row">
         <div class="col-md-6 sm-p-l-10">
                 <a href="{{ path('login') }}" class="text-info small">Connexion</a>
@@ -34,14 +37,8 @@
     <br>
     <div class="row m-t-12">
         <div class="col-lg-12">
-            <button class="btn btn-primary btn-cons m-t-10" type="submit">Créez un compte</button> {#
-            <div class="row">
-                <div class="col-md-6 no-padding sm-p-l-10">
-                    <div class="checkbox ">
-                        <a href="{{ path('login') }}" class="text-info small">connexion</a>
-                    </div>
-                </div>
-            </div> #}
+            <button class="btn btn-primary btn-cons m-t-10" type="submit">Créez un compte</button> 
+            
         </div>
     </div>
 </form>
