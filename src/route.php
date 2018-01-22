@@ -58,8 +58,10 @@ $app->get('/register', function () use ($app){
 $app->post("/register", "Webforce3\Controlleur\RegisterController::registerAction");
 
 
-
-
+/* Page profil */
+$app->get("/profil", function() use ($app){
+    return $app["twig"]->render("pages/pagesExpert/profil.html.twig", array());
+})->bind("profil");
 
 // *************  ajout contenu ************ //
 
@@ -67,6 +69,9 @@ $app->get("/ajout_recette", function() use ($app){
     return $app["twig"]->render("pages/ajout-recette.html.twig", array());
 })->bind("ajout_recette");
 
+$app->get("/liste_recette", function() use ($app){
+    return $app["twig"]->render("pages/listeRecette.html.twig", array());
+})->bind("liste_recette");
 
 $app->get("/ajout_conseil", function() use ($app){
     return $app["twig"]->render("pages/ajout-conseil.html.twig", array());
@@ -76,24 +81,13 @@ $app->get("/ajout_conseil", function() use ($app){
 
 
 //page Expert
-$app->get("/profil", function() use ($app){
-    return $app["twig"]->render("pages/pagesExpert/profil.html.twig", array());
-})->bind("profil");
+
 $app->get("/question", function() use ($app){
     return $app["twig"]->render("pages/pagesExpert/questionConso.html.twig", array());
 })->bind("question");
 $app->get("/contenu", function() use ($app){
     return $app["twig"]->render("test/ajout-contenu.html.twig", array());
 })->bind("contenu");
-
-
-
-
-
-
-
-
-
 
 
 
@@ -114,26 +108,6 @@ $app->get("/formEquipe", function() use ($app){
 })->bind("formEquipe");
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //page Membre
 $app->get("/filtre", function() use ($app){
     return $app["twig"]->render("pages/pageMembre/filtre.html.twig", array());
@@ -148,32 +122,7 @@ $app->get("/listeConso", function() use ($app){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// *************  Page erreur ************ //
 
 
 
