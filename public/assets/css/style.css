@@ -1,7 +1,14 @@
+/* nos propres styles */
+
 .login {
     margin-top: 190px;
 }
 
 .card .card-block {
     padding: 5px;
+}
+
+.spacing {
+    margin-right: 3%;
+    display: inline;
 }
