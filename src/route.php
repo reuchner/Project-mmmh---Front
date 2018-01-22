@@ -92,10 +92,12 @@ $app->get("/formMembre", function() use ($app){
 $app->get("/listeMembre", function() use ($app){
     return $app["twig"]->render("pages/pageAdmin/listeMembre.html.twig", array());
 })->bind("listeMembre");
+$app->post("/listeMembre", "Webforce3\Controlleur\MembreControlleur::selectMembre");
 
 $app->get("/ajoutMembre", function() use ($app){
     return $app["twig"]->render("pages/pageAdmin/ajoutMembre.html.twig", array());
 })->bind("ajoutMembre");
+$app->post("/ajoutMembre", "Webforce3\Controlleur\MembreControlleur::insertMembre");
 
 
 

@@ -27,6 +27,7 @@
         <link href="{{ asset ('assets/plugins/bootstrap-datepicker/css/datepicker3.css')}}" rel="stylesheet" type="text/css" media="screen">
         <link href="{{ asset ('assets/plugins/jquery-metrojs/MetroJs.css')}}" rel="stylesheet" type="text/css" media="screen" />
         <link href="{{ asset ('pages/css/pages-icons.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{ asset ( 'assets/plugins/font-awesome/css/font-awesome.css' )}}" rel="stylesheet" type="text/css" />
         <!-- MAIN CSS --> 
         <link class="main-stylesheet" href="{{ asset ('pages/css/pages.css')}}" rel="stylesheet" type="text/css" />
         <!-- OUR OWN CSS --> 
@@ -69,11 +70,15 @@
                         <ul class="sub-menu">
                             <li class="">
                                 <a href="{{ path('ajout_recette') }}">Nouvelle recettes</a>
-                                <span class="icon-thumbnail"></span>
+                                <span class="icon-thumbnail"><i class="fa fa-commenting-o"></i></span>
+                            </li>
+                            <li class="">
+                                <a href="{{ path('ajout_conseil') }}">Nouveau conseil</a>
+                                <span class="icon-thumbnail"><i class="fa fa-cutlery"></i></span>
                             </li>
                             <li class="">
                                 <a href="{{ path('liste_recette') }}">Liste des recettes</a>
-                                <span class="icon-thumbnail"></span>
+                                <span class="icon-thumbnail"><i class="fa fa-list-ul"></i></span>
                             </li>
                         </ul>
                     </li>
@@ -83,12 +88,12 @@
                         <span class="icon-thumbnail">A</span>
                         <ul class="sub-menu">
                             <li class="">
-                                <a href="{{ path('ajoutMembre') }}">Gestion membres</a>
-                                <span class="icon-thumbnail"></span>
+                                <a href="{{ path('ajoutMembre') }}">Ajouter un nouveau membre</a>
+                                <span class="icon-thumbnail"><i class="fa fa-user-plus"></i></span>
                             </li>
                             <li class="">
                                 <a href="{{ path('listeMembre') }}">Liste membres</a>
-                                <span class="icon-thumbnail"></span>
+                                <span class="icon-thumbnail"><i class="fa fa-address-book-o"></i></span>
                             </li>
                         </ul>
                     </li>
@@ -132,7 +137,7 @@
                             <a href="{{ path('profil') }}" class="dropdown-item"><i class="pg-settings_small"></i> Réglages</a>
                             <a href="{{ path('logout') }}" class="clearfix bg-master-lighter dropdown-item">
                                 <span class="pull-left">Déconnexion</span>
-                                <span class="pull-right"><i class="pg-power"></i></span>
+                                <span class="pull-right"><i class="fa fa-sign-out"></i></span>
                             </a>
                         </div>
                     </div> <!-- END USER INFO !-->
