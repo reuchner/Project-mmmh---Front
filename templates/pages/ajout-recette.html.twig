@@ -31,7 +31,7 @@
                             <div class="form-group row">
                                 <label for="name" class="col-md-2 control-label">Titre de la recette</label>
                                 <div class="col-md-10">
-                                    <textarea rows="4" class="form-control" id="name" placeholder="Tarte aux fraises" required></textarea>
+                                    <input class="form-control" id="name" placeholder="Tarte aux fraises" required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -44,27 +44,27 @@
                             {# INGREDIENTS #}
                             <div class="form-group row">
                                 <label for="name" class="col-md-2 control-label">Ingrédients</label>
-                                <div class="col-md-10">
+                                <div class="col-md-10" id="listeInputIngredient">
                                     <div class="row">
-                                        <div class="col-md-11">
-                                            <input class="form-control" id="ingredient1" placeholder="100g de sucre" required>
+                                        <div class="col-md-11" style=" padding: 0%; ">
+                                            <input class="form-control" name="ingredient" placeholder="Ajoutez un ingrédient ici" required>
                                         </div>
                                         <div class="col-md-1">
-                                            <button type="button" class="btn btn-primary float-right">+</button>
+                                            <button type="button" class="btn btn-primary float-right" id="ingredientButton">+</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             {# ETAPES #}
                             <div class="form-group row">
-                                    <label for="name" class="col-md-2 control-label">Étapes</label>
-                                <div class="col-md-10">
+                                <label for="name" class="col-md-2 control-label">Étapes</label>
+                                <div class="col-md-10" id="listeInputEtape">
                                     <div class="row">
-                                        <div class="col-md-11">
-                                            <textarea class="form-control" rows="3" id="name" placeholder="Commencez par laver les fraises.." required></textarea>
+                                        <div class="col-md-11" style=" padding: 0%; ">
+                                            <input class="form-control" id="etape" name="etape" placeholder="Ajoutez une étape ici" required>
                                         </div>
                                         <div class="col-md-1 ">
-                                            <button type="button" class="btn btn-primary float-right">+</button>
+                                            <button type="button" class="btn btn-primary float-right" id="etapeButton">+</button>
                                         </div>
                                     </div>
                                 </div>
@@ -74,11 +74,7 @@
                             <div class="form-group row">
                                 <label for="fname" class="col-md-2 control-label ">Intolérances / Régime</label>
                                     <div class="col-md-10 ">
-                                    
-                                        <div class="col-md-3 spacing">
-                                            <input id="gluten" type="checkbox" name="gluten" value="gluten" class="checkbox-inline ">
-                                            <label for="gluten">Sans gluten</label>
-                                        </div>
+                                
                                         <div class="col-md-3 spacing">
                                             <input id="vegan" type="checkbox" name="vegan" value="vegan" class="checkbox-inline ">
                                             <label for="vegan">Vegan</label>
@@ -88,12 +84,28 @@
                                             <label for="vegetarien">Vegetarien</label>
                                         </div>
                                         <div class="col-md-3 spacing">
+                                            <input id="gluten" type="checkbox" name="gluten" value="gluten" class="checkbox-inline ">
+                                            <label for="gluten">Sans gluten</label>
+                                        </div>
+                                        <div class="col-md-3 spacing">
                                             <input id="lait" type="checkbox" name="lait" value="lait" class="checkbox-inline ">
                                             <label for="lait">Sans produits laitiers</label>   
                                         </div>
                                         <div class="col-md-3 spacing">
                                             <input id="noix" type="checkbox" name="noix" value="noix" class="checkbox-inline ">
                                             <label for="lait">Sans noix</label>   
+                                        </div>
+                                        <div class="col-md-3 spacing">
+                                            <input id="noix" type="checkbox" name="noix" value="noix" class="checkbox-inline ">
+                                            <label for="lait">Dukan</label>   
+                                        </div>
+                                        <div class="col-md-3 spacing">
+                                            <input id="noix" type="checkbox" name="noix" value="noix" class="checkbox-inline ">
+                                            <label for="lait">Paleo</label>   
+                                        </div>
+                                        <div class="col-md-3 spacing">
+                                            <input id="noix" type="checkbox" name="noix" value="noix" class="checkbox-inline ">
+                                            <label for="lait">Faible en glucides</label>   
                                         </div>
                                     
                                 </div>
@@ -104,13 +116,13 @@
                                 <div class="col-md-2">
                                 <label for="position" class="control-label">Images à ajouter</label>
                                 </div>
-                                <div class="col-md-10">                                                  
+                                <div class="col-md-10" id="listeInputPhoto">                             
                                     <div class="row">
                                         <div class="col-md-11">
-                                            <input type="file" class="form-control" id="position" placeholder="Format .jpg ou .png" required>
+                                            <input type="file" class="form-control" id="photo" placeholder="Format .jpg ou .png" required>
                                         </div>
                                         <div class="col-md-1">
-                                            <button type="button" class="btn btn-primary float-right">+</button>
+                                            <button type="button" class="btn btn-primary float-right" id="photoButton">+</button>
                                         </div>
                                     </div>
                                 </div>
@@ -121,7 +133,7 @@
                                     <label for="position" class="control-label"></label>
                                 </div>
                                 <div class="col-md-10">                                                  
-                                    <button type="submit" class="btn btn-lg btn-success col-md-4 offset-4">Envoyer</button>
+                                    <button type="submit" class="btn btn-lg btn-success col-md-4 offset-4" id="etapeButton">Envoyer</button>
                                 </div>
                             </div>
                         </div> <!-- END div col-md-10 -->
@@ -131,3 +143,4 @@
     </div> <!-- END card -->
     
 {% endblock %}
+
