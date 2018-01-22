@@ -1,0 +1,71 @@
+
+{% extends "layout-home.html.twig" %}
+{% block title %}Liste des membres{% endblock %}
+{% block head %}
+<link href="assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+{% block content %}
+{% endblock %}
+    <div class=" container-fluid   container-fixed-lg bg-white">
+    <div class="card card-transparent">
+        <div class="card-header ">
+            <div class="card-title">Liste des membres</div>
+        </div>
+        <div class="card-block">
+            <div class="table-responsive">
+                <table class="table table-hover" id="basicTable">
+                    <thead>
+                        <tr>
+                            <th style="width:10%">Pseudo</th>
+                            <th style="width:10%">Nom</th>
+                            <th style="width:10%">Prenom</th>
+                            <th style="width:10%">Email</th>
+                            <th style="width:10%">Numéro de téléphone</th>
+                            <th style="width:5%">Status</th>
+                            <th style="width:5%">Modifier</th>
+                            <th style="width:1%" class="text-center">
+                                <button class="btn btn-link"><i class="fa fa-trash"></i></button>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <a href="">
+                                <td class="v-align-middle ">
+                                    <p>Test</p>
+                                </td>
+                                <td class="v-align-middle ">
+                                    <p>Testus</p>
+                                </td>
+                                <td class="v-align-middle ">
+                                    <p>Testor</p>
+                                </td>
+                                <td class="v-align-middle">
+                                    <p>test@test.test</p>
+                                </td>
+                                <td class="v-align-middle">
+                                    <p>+06 01 02 03 04 05 06</p>
+                                </td>
+                                <td class="v-align-middle">
+                                    <p>Admin</p>
+                                </td>
+                                <td class="v-align-middle">
+                                    <a href="{{ path('formMembre') }}">
+                                        <button class="btn btn-link"><i class="fa fa-pencil"></i></button>
+                                    </a>  
+                                </td>
+                                <td class="v-align-middle">
+                                    <div class="checkbox text-center">
+                                        <input type="checkbox" value="3" id="checkbox1">
+                                        <label for="checkbox1" class="no-padding no-margin"></label>
+                                    </div>
+                                </td>
+
+                            </a>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

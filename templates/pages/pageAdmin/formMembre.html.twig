@@ -2,14 +2,12 @@
 {% extends "layout-home.html.twig" %}
 {% block title %}Enregistrement-equipe{% endblock  %}
 {% block content %}
-            <h1>Enregistrement de l'équipe Mmmh !</h1>
+            <h1>Modification membre</h1>
             <form role="form">
-
               <div class="form-group form-group-default ">
                   <label>Pseudo</label>
                   <input type="text" id="pseudo" name="pseudo" class="form-control" required>
               </div>
-          
               <div class="row">
                   <div class="col-sm-6">
                       <div class="form-group form-group-default">
@@ -25,16 +23,16 @@
                   </div>
               </div>
 
+              <div class="form-group form-group-default">
+                <label>Email</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+              </div>
           
               <div class="form-group form-group-default">
                 <label>Mot de passe</label>
                 <input type="password" id="lastname" name="lastname" class="form-control" required>
               </div>
 
-              <div class="form-group form-group-default">
-                <label>Email</label>
-                <input type="email" id="email" name="email" class="form-control" required>
-              </div>
 
               <div class="form-group form-group-default">
                 <label>Numéro de téléphone</label>
