@@ -1,81 +1,77 @@
+ {% extends "layout-home.html.twig" %} 
+ {% block headTitle %}Edition du profil{% endblock %} 
+ {% block content %}
+<h1>Profil</h1>
+<form role="form">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group form-group-default ">
+                <label>Pseudo</label>
+                <input type="text" id="pseudo" name="pseudo" class="form-control" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+                <label>Status</label>
+                <select class="cs-select cs-skin-slide" data-init-plugin="cs-select">
+                        <option value="admin">Admin</option>
+                        <option value="membre">Membre</option>
+                        <option value="expert">Expert</option>
+                </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group form-group-default">
+                <label>Prénom</label>
+                <input type="text" id="firstname" name="firstname" class="form-control" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group form-group-default">
+                <label>Nom</label>
+                <input type="text" id="lastname" name="lastname" class="form-control">
+            </div>
+        </div>
+    </div>
 
-{% extends "layout-home.html.twig" %}
-{% block headTitle %}Edition du profil{% endblock  %}
-{% block content %}
-    <h1>Profil</h1>
-            <form role="form">
-    
-              <div class="form-group form-group-default ">
-                  <label>Pseudo</label>
-                  <input type="text" id="pseudo" name="pseudo" class="form-control" required>
-              </div>
-          
-              <div class="row">
-                  <div class="col-md-6">
-                      <div class="form-group form-group-default">
-                          <label>Prénom</label>
-                          <input type="text" id="firstname" name="firstname" class="form-control" required>
-                      </div>
-                  </div>
-                  <div class="col-md-6">
-                      <div class="form-group form-group-default">
-                          <label>Nom</label>
-                          <input type="text" id="lastname" name="lastname" class="form-control">
-                      </div>
-                  </div>
-              </div>
-
-          
-              <div class="form-group form-group-default">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group form-group-default">
                 <label>Mot de passe</label>
                 <input type="password" id="lastname" name="lastname" class="form-control" required>
-              </div>
-
-              
-
-              <div class="form-group form-group-default">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group form-group-default">
                 <label>Email</label>
                 <input type="email" id="email" name="email" class="form-control" required>
-              </div>
-              
-              <div class="form-group form-group-default">
-                <label>Ville de résidence</label>
-                <input type="text" id="ville" name="ville" class="form-control" required>
-              </div>
-
-              <div class="form-group form-group-default">
-                <label>Code postal</label>
-                <input type="text" id="cp" name="cp" class="form-control" required>
-              </div>
-
-              <div class="form-group form-group-default">
-                <label>Numéro de téléphone</label>
-                <input type="tel" id="phone" name="phone" class="form-control" required>
-              </div>
-
-              <div class="form-group form-group-default">
-                <label>Date de naissance</label>
-                <input type="date" id="age" name="age" class="form-control" required>
-              </div>
-
-              <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group form-group-default">
-                        <label>Profession</label>
-                        <input type="text" id="profession" name="profession" class="form-control" required>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group form-group-default">
-                        <label>Domaine d'expertise</label>
-                        <input type="text" id="expertise" name="expertise" class="form-control">
-                    </div>
-                </div>
             </div>
-              <!-- Validation -->
-              <button class="btn btn-primary btn-animated from-left fa fa-check" type="button">
+        </div>
+    </div>
+
+    <div class="form-group form-group-default">
+        <label>Numéro de téléphone</label>
+        <input type="tel" id="phone" name="phone" class="form-control" required>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group form-group-default">
+                <label>Profession</label>
+                <input type="text" id="profession" name="profession" class="form-control" required>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group form-group-default">
+                <label>Domaine d'expertise</label>
+                <input type="text" id="expertise" name="expertise" class="form-control">
+            </div>
+        </div>
+    </div>
+    <!-- Validation -->
+    <button class="btn btn-primary btn-animated from-left fa fa-check" type="button">
                 <span>Enregistrer</span>
-            </button>         
-          </form>
-{% endblock %}
-{# {% block contentTable %}{% endblock %} #}
+            </button>
+</form>
+{% endblock %} {# {% block contentTable %}{% endblock %} #}
