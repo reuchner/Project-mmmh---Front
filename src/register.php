@@ -22,7 +22,7 @@
         'db.options' => array(
             'host'   => 'localhost',
             'user'     => 'root',
-            'password'     => 'root',
+            'password'     => '',
             'dbname'     => 'db_mmmh',
         ),
     ));
