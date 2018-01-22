@@ -8,7 +8,12 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 //Request::setTrustedProxies(array('127.0.0.1'));
 
-//home
+/********************************************************************************/
+/****************** Home ********************************************************/
+/********************************************************************************/
+
+
+
 $app->get('/', function () use ($app) {
     return $app['twig']->render('pages/home.html.twig', array(
         // 'user'=> "expert",
@@ -33,7 +38,14 @@ $app->get('/home', function () use ($app) {
 })->bind("home")->before($isConnectNo);
 
 
-//connexion 
+
+
+/********************************************************************************/
+/********************** Connexion ***********************************************/ 
+/********************************************************************************/
+
+
+
 $app->get("/login", function() use ($app){
     return $app["twig"]->render("login-register/login.html.twig", array());
 })->bind("login")->before($isConnectYes);
@@ -48,7 +60,10 @@ $app->post("/register", "Webforce3\Controlleur\AuthControlleur::register");
 
 
 
-// *************  route inscription ************ //
+/********************************************************************************/
+/********************* Route inscription ****************************************/
+/********************************************************************************/
+
 
 
 $app->get('/register', function () use ($app){
@@ -58,12 +73,24 @@ $app->get('/register', function () use ($app){
 $app->post("/register", "Webforce3\Controlleur\RegisterController::registerAction");
 
 
-/* Page profil */
+
+/********************************************************************************/
+/*********************** Page profil ********************************************/
+/********************************************************************************/
+
+
+
 $app->get("/profil", function() use ($app){
-    return $app["twig"]->render("pages/pagesExpert/profil.html.twig", array());
+    return $app["twig"]->render("pages/profil.html.twig", array());
 })->bind("profil");
 
-// *************  ajout contenu ************ //
+
+
+/********************************************************************************/
+/*********************** Pages contenu ******************************************/
+/********************************************************************************/
+
+
 
 $app->get("/ajout_recette", function() use ($app){
     return $app["twig"]->render("pages/ajout-recette.html.twig", array());
@@ -79,50 +106,29 @@ $app->get("/ajout_conseil", function() use ($app){
 
 
 
-
-//page Expert
-
-$app->get("/question", function() use ($app){
-    return $app["twig"]->render("pages/pagesExpert/questionConso.html.twig", array());
-})->bind("question");
-$app->get("/contenu", function() use ($app){
-    return $app["twig"]->render("test/ajout-contenu.html.twig", array());
-})->bind("contenu");
+/********************************************************************************/
+/************************** Pages Admin *****************************************/
+/********************************************************************************/
 
 
 
+$app->get("/formMembre", function() use ($app){
+    return $app["twig"]->render("pages/pageAdmin/formMembre.html.twig", array());
+})->bind("formMembre");
+
+$app->get("/listeMembre", function() use ($app){
+    return $app["twig"]->render("pages/pageAdmin/listeMembre.html.twig", array());
+})->bind("listeMembre");
+
+$app->get("/ajoutMembre", function() use ($app){
+    return $app["twig"]->render("pages/pageAdmin/ajoutMembre.html.twig", array());
+})->bind("ajoutMembre");
 
 
 
-
-
-
-
-//page Admin
-$app->get("/formExpert", function() use ($app){
-    return $app["twig"]->render("pages/pageAdmin/formExpert.html.twig", array());
-})->bind("formExpert");
-
-$app->get("/formEquipe", function() use ($app){
-    return $app["twig"]->render("pages/pageAdmin/formEquipe.html.twig", array());
-})->bind("formEquipe");
-
-
-//page Membre
-$app->get("/filtre", function() use ($app){
-    return $app["twig"]->render("pages/pageMembre/filtre.html.twig", array());
-})->bind("filtre");
-$app->get("/reponse", function() use ($app){
-    return $app["twig"]->render("pages/pageMembre/gestionReponse.html.twig", array());
-})->bind("reponse");
-$app->get("/listeConso", function() use ($app){
-    return $app["twig"]->render("pages/pageMembre/listeConso.html.twig", array());
-})->bind("listeConso");
-
-
-
-
-// *************  Page erreur ************ //
+/********************************************************************************/
+/************************** Pages erreur *****************************************/
+/********************************************************************************/
 
 
 
