@@ -51,6 +51,7 @@
             return $app->redirect("login");
         }
 
+<<<<<<< HEAD
 
         public function register(Request $request, Application $app){
 
@@ -78,6 +79,9 @@
             );
             
             return $app->redirect("login");
+=======
+        
+>>>>>>> e7a13cba33c2d61445fe8bca9e3a0b7d44013d1d
         
         }
 

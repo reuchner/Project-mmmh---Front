@@ -29,6 +29,7 @@
     <link href="{{ asset ('assets/plugins/jquery-metrojs/MetroJs.css')}}" rel="stylesheet" type="text/css" media="screen" />
     <link href="{{ asset ('pages/css/pages-icons.css')}}" rel="stylesheet" type="text/css">
     <link class="main-stylesheet" href="{{ asset ('pages/css/pages.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset ('assets/css/style.css')}}" rel="stylesheet" type="text/css" />
     {% block head %}{% endblock %} 
 
 </head>
@@ -180,12 +181,13 @@
             </a>
             <!-- END MOBILE SIDEBAR TOGGLE -->
             <div class="">
-                <div class="brand inline   ">
-                    <p>Mmmmhh!</p>
+                <div class="brand inline">
+                    {# <h3 class="bold">Mmmh!</h3> #}
+                    <img width="117" height="33" src="//res.cloudinary.com/hrscywv4p/image/upload/c_limit,fl_lossy,h_1440,w_720,f_auto,q_auto/v1/870792/ckv6azvhom4qmqhxg82n.png">
                 </div>
                 <!-- START NOTIFICATION LIST -->
                 <!-- END NOTIFICATIONS LIST -->
-                <a href="#" class="search-link hidden-md-down" data-toggle="search"><i class="pg-search"></i>Type anywhere to <span class="bold">search</span></a>
+                {# <a href="#" class="search-link hidden-md-down" data-toggle="search"><i class="pg-search"></i>Type anywhere to <span class="bold">search</span></a> #}
             </div>
             <div class="d-flex align-items-center">
                 <!-- START User Info-->
@@ -199,10 +201,15 @@
               </span>
             </button>
                     <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
+<<<<<<< HEAD
                         <a href="#" class="dropdown-item"><i class="pg-settings_small"></i> Settings</a>
                         <a href="#" class="dropdown-item"><i class="pg-outdent"></i> Feedback</a>
                         <a href="#" class="dropdown-item"><i class="pg-signals"></i> Help</a>
                         <a href="{{ path('logout') }}" class="clearfix bg-master-lighter dropdown-item">
+=======
+                        <a href="#" class="dropdown-item"><i class="pg-settings_small"></i> Réglages</a>
+                        <a href="#" class="clearfix bg-master-lighter dropdown-item">
+>>>>>>> e7a13cba33c2d61445fe8bca9e3a0b7d44013d1d
                             <span class="pull-left">Logout</span>
                             <span class="pull-right"><i class="pg-power"></i></span>
                         </a>
@@ -238,10 +245,10 @@
             <div class=" container-fluid  container-fixed-lg footer">
                 <div class="copyright sm-text-center">
                     <p class="small no-margin pull-left sm-pull-reset">
-                        <span class="hint-text">Copyright &copy; 2017 </span>
-                        <span class="font-montserrat">REVOX</span>.
-                        <span class="hint-text">All rights reserved. </span>
-                        <span class="sm-block"><a href="#" class="m-l-10 m-r-10">Terms of use</a> <span class="muted">|</span> <a href="#" class="m-l-10">Privacy Policy</a></span>
+                        <span class="hint-text">Copyright &copy; 2017-2018 </span>
+                        <span class="font-montserrat bold">Mmmh!</span>
+                        <span class="hint-text">Tous droits réservés. </span>
+                        <span class="sm-block"><a href="#" class="m-l-10 m-r-10">Conditions d'utilisation</a> <span class="muted">|</span> <a href="#" class="m-l-10">Politique de confidentialité</a></span>
                     </p>
                     <div class="clearfix"></div>
                 </div>
