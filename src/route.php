@@ -16,7 +16,7 @@ $app->get('/', function () use ($app) {
         // 'nom'=> "Paul"
     ));
 })
-->bind('home')->before($isConnectNo);
+->bind('home-principal')->before($isConnectNo);
 
 $app->get('/logout', function () use ($app) {
     setcookie('mmmh', NULL, -1); // Modification du cookie( Valeur null et temps -1)
