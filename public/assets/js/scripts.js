@@ -16,14 +16,19 @@
 
     function evenementEtape() {
         $("#etapeButton").click(function() {
-            let nbInput = $("#listeInputIngredient input").length + 1;
-            let codeHtml = '<div class="row"><div class="col-md-11" style=" padding: 0px; margin: 1% 0%; "> <input class="form-control" id="etape' + nbInput + '" name="etape' + nbInput + '" placeholder="Ajoutez une étape ici" ></div><div class="col-md-1"> <button type="button" class="btn btn-primary float-right" id="etapeButton" style="margin: 12% 0%;">+</button></div></div>';
+            let nbInput = $("#listeInputEtape textarea").length;
+            let nomSteps = nbInput / 3;
+            let codeHtml = '<div class="row" style=" margin-top: 2%; "><div class="col-md-11"><div class="row">';
+            for(let i = 1; i < 4; i++)
+            codeHtml += '<div class="col-md-4"> <textarea rows="10" cols="50" class="form-control" id="step'+nomSteps+'-'+(nbInput+i)+'" name="step'+nomSteps+'-'+(nbInput+i)+'" placeholder="Une délicieuse tarte à déguster en été, accompagnée d\'une petite limonade" required></textarea> </div>';
 
+            codeHtml += '</div> </div> <div class="col-md-1"> <button type="button" class="btn btn-primary float-right" id="etapeButton">+</button> </div> </div>';
+            
             $("#listeInputEtape").append(codeHtml);
             $(this).remove();
             evenementEtape();
         });
-    }
+    }                                  
     evenementEtape();
 
     function evenementPhoto() {

@@ -21,7 +21,7 @@
                             <th style="width:10%">Prenom</th>
                             <th style="width:10%">Email</th>
                             <th style="width:10%">Numéro de téléphone</th>
-                            <th style="width:5%">Status</th>
+                            <th style="width:5%">Création</th>
                             <th style="width:5%">Modifier</th>
                             <th style="width:1%" class="text-center">
                                 <button class="btn btn-link"><i class="fa fa-trash"></i></button>
@@ -29,43 +29,45 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <a href="">
-                                <td class="v-align-middle ">
-                                    <img src="assets/img/profiles/avatar.jpg" alt="avatar">
-                                </td>
-                                <td class="v-align-middle ">
-                                    <p>Test</p>
-                                </td>
-                                <td class="v-align-middle ">
-                                    <p>Testus</p>
-                                </td>
-                                <td class="v-align-middle ">
-                                    <p>Testor</p>
-                                </td>
-                                <td class="v-align-middle">
-                                    <p>test@test.test</p>
-                                </td>
-                                <td class="v-align-middle">
-                                    <p>+06 01 02 03 04 05 06</p>
-                                </td>
-                                <td class="v-align-middle">
-                                    <p>Admin</p>
-                                </td>
-                                <td class="v-align-middle">
-                                    <a href="{{ path('formMembre') }}">
-                                        <button class="btn btn-link"><i class="fa fa-pencil"></i></button>
-                                    </a>  
-                                </td>
-                                <td class="v-align-middle">
-                                    <div class="checkbox text-center">
-                                        <input type="checkbox" value="3" id="checkbox1">
-                                        <label for="checkbox1" class="no-padding no-margin"></label>
-                                    </div>
-                                </td>
+                        {% for user in users %}
+                            <tr>
+                                <a href="">
+                                    <td class="v-align-middle ">
+                                        <img src="assets/img/profiles/avatar.jpg" alt="avatar">
+                                    </td>
+                                    <td class="v-align-middle ">
+                                        <p>{{ user.username }}</p>
+                                    </td>
+                                    <td class="v-align-middle ">
+                                        <p>{{ user.firstname }}</p>
+                                    </td>
+                                    <td class="v-align-middle ">
+                                        <p>{{ user.lastname }}</p>
+                                    </td>
+                                    <td class="v-align-middle">
+                                        <p>{{ user.email }}</p>
+                                    </td>
+                                    <td class="v-align-middle">
+                                        <p>{{ user.tel }}</p>
+                                    </td>
+                                    <td class="v-align-middle">
+                                        <p>{{ user.created | date("d-m-Y")  }}</p>
+                                    </td>
+                                    <td class="v-align-middle">
+                                        <a href="{{ path('infoMembre', {id: user.id}) }}">
+                                            <button class="btn btn-link"><i class="fa fa-pencil"></i></button>
+                                        </a>  
+                                    </td>
+                                    <td class="v-align-middle">
+                                        <div class="checkbox text-center">
+                                            <input type="checkbox" value="{{ loop.index }}" id="checkbox{{ loop.index }}">
+                                            <label for="checkbox{{ loop.index }}" class="no-padding no-margin"></label>
+                                        </div>
+                                    </td>
 
-                            </a>
-                        </tr>
+                                </a>
+                            </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>

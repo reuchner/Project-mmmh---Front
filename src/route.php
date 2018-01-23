@@ -15,6 +15,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 
 $app->get('/', function () use ($app) {
+
     return $app['twig']->render('pages/home.html.twig', array(
         // 'user'=> "expert",
         // 'prenom'=> "Pierre",
@@ -53,9 +54,8 @@ $app->post("/login", "Webforce3\Controlleur\AuthControlleur::login");
 
 
 
-$app->get("/profil", function() use ($app){
-    return $app["twig"]->render("pages/profil.html.twig", array());
-})->bind("profil");
+$app->get("/profil", "Webforce3\Controlleur\MembreControlleur::editProfilView")->bind("profil");
+$app->post("/profil", "Webforce3\Controlleur\MembreControlleur::editProfil");
 
 
 
@@ -66,8 +66,15 @@ $app->get("/profil", function() use ($app){
 
 
 $app->get("/ajout_recette", function() use ($app){
-    return $app["twig"]->render("pages/ajout-recette.html.twig", array());
+
+    $sql = "SELECT * FROM categories";
+    $categories = $app['db']->fetchAll($sql);
+    return $app["twig"]->render("pages/ajout-recette.html.twig", array(
+        "categories" => $categories,
+    ));
 })->bind("ajout_recette");
+$app->post("/ajout_recette", "Webforce3\Controlleur\RecipeControlleur::addRecipe");
+
 
 $app->get("/liste_recette", function() use ($app){
     return $app["twig"]->render("pages/listeRecette.html.twig", array());
@@ -89,15 +96,13 @@ $app->get("/formMembre", function() use ($app){
     return $app["twig"]->render("pages/pageAdmin/formMembre.html.twig", array());
 })->bind("formMembre");
 
-$app->get("/listeMembre", function() use ($app){
-    return $app["twig"]->render("pages/pageAdmin/listeMembre.html.twig", array());
-})->bind("listeMembre");
-$app->post("/listeMembre", "Webforce3\Controlleur\MembreControlleur::selectMembre");
-
 $app->get("/ajoutMembre", function() use ($app){
-    return $app["twig"]->render("pages/pageAdmin/ajoutMembre.html.twig", array());
+    return $app["twig"]->render("pages/pageAdmin/ajoutMembre.html.twig", array("error" => ""));
 })->bind("ajoutMembre");
-$app->post("/ajoutMembre", "Webforce3\Controlleur\MembreControlleur::insertMembre");
+$app->post("/ajoutMembre", "Webforce3\Controlleur\MembreControlleur::insertMembre")->bind("insertMembre");
+
+$app->get("/membre", "Webforce3\Controlleur\MembreControlleur::selectMembres")->bind("listeMembre");
+$app->get("/membre/{id}", "Webforce3\Controlleur\MembreControlleur::selectMembre")->bind("infoMembre");
 
 
 

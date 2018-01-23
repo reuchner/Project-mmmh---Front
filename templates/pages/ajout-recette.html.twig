@@ -17,27 +17,75 @@
                         {# INFOS GENERALES #}
                         <form id="form-group row" method="post" class="form-horizontal" role="form" autocomplete="off">
                             <div class="form-group row">
-                                <label for="fname" class="col-md-2 control-label" >Nom</label>
+                                <label for="fname" class="col-md-2 control-label" >Id</label>
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" id="fname" placeholder="Indiquez votre nom et prénom ou votre nom d'utilisateur" name="name" required>
+                                    <input type="text" class="form-control" id="id" placeholder="Indiquez l'id de la recette" name="id" required>
+                                </div>
+                            </div>                            
+                            <div class="form-group row">
+                                <label for="fname" class="col-md-2 control-label" >Catégorie</label>
+                                <div class="col-md-10">
+                                    <select id="categorie" name="categorie" class="cs-select cs-skin-slide" data-init-plugin="cs-select">
+                                        {% for categorie in categories %}
+                                            <option value="{{ categorie.name }}">{{ categorie.name }}</option>
+                                        {% endfor %}
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="fname" class="col-md-2 control-label">Qualification</label>
+                                <label for="fname" class="col-md-2 control-label">Carotte</label>
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" id="fname" placeholder="Nutritioniste, médecin, professeur de yoga..." name="name" required>
+                                    <div class="row">
+                                        <div class="col-md-4">                                
+                                            <input type="text" class="form-control" id="carotte_reponse" placeholder="Nombre de carotte pour une reponse" name="carotte_reponse" required>
+                                        </div>
+                                        <div class="col-md-4">                                
+                                            <input type="text" class="form-control" id="carotte_tips" placeholder="Nombre de carotte pour un tips" name="carotte_tips" required>
+                                        </div>
+                                        <div class="col-md-4">                                
+                                            <input type="text" class="form-control" id="carotte_recette" placeholder="Nombre de carotte pour une recette" name="carotte_recette" required>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="name" class="col-md-2 control-label">Titre de la recette</label>
+                                <label for="fname" class="col-md-2 control-label">Vignette</label>
                                 <div class="col-md-10">
-                                    <input class="form-control" id="name" placeholder="Tarte aux fraises" required>
+                                    <div class="row">
+                                        <div class="col-md-4">                                
+                                            <input type="text" class="form-control" id="nb_personne" placeholder="Nombre de personne" name="nb_personne" required>
+                                        </div>
+                                        <div class="col-md-4">                                
+                                            <input type="text" class="form-control" id="tmp_preparation" placeholder="Temps de préparation de la recette" name="tmp_preparation" required>
+                                        </div>
+                                        <div class="col-md-4">                                
+                                            <input type="text" class="form-control" id="tmpCuisson" placeholder="Temps de cuisson de la recette" name="tmpCuisson" required>
+                                        </div>
+                                    </div>
+                                    <div class="row" style=" margin-top: 2%; ">
+                                        <div class="col-md-4">                                
+                                            <input type="file" class="form-control" id="photo" placeholder="Format .jpg ou .png">
+                                        </div>
+                                        <div class="col-md-4">                                
+                                            <input type="text" class="form-control" id="vignette_title" placeholder="Titre de la vignette" name="vignette_title" required>
+                                        </div>
+                                        <div class="col-md-4">                                
+                                            <input type="text" class="form-control" id="vignette_subtitle" placeholder="Subtitle la vignette" name="vignette_subtitle" required>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="name" class="col-md-2 control-label">Description</label>
                                 <div class="col-md-10">
-                                    <textarea rows="4" class="form-control" id="name" placeholder="Une délicieuse tarte à déguster en été, accompagnée d'une petite limonade" required></textarea>
+                                            <textarea rows="10" cols="50" class="form-control" id="description" name="description" placeholder="Une délicieuse tarte à déguster en été, accompagnée d'une petite limonade" required></textarea>
+                                       
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="name" class="col-md-2 control-label">Titre de la recette</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" id="name" name="name" placeholder="Tarte aux fraises" required>
                                 </div>
                             </div>
 
@@ -60,10 +108,20 @@
                                 <label for="name" class="col-md-2 control-label">Étapes</label>
                                 <div class="col-md-10" id="listeInputEtape">
                                     <div class="row">
-                                        <div class="col-md-11" style=" padding: 0%; ">
-                                            <input class="form-control" id="etape" name="etape" placeholder="Ajoutez une étape ici" required>
+                                        <div class="col-md-11">
+                                            <div class="row">
+                                                <div class="col-md-4"> 
+                                                    <textarea rows="10" cols="50" class="form-control" id="step0-1" name="step0-1" placeholder="Une délicieuse tarte à déguster en été, accompagnée d'une petite limonade" required></textarea>
+                                                </div>
+                                                <div class="col-md-4"> 
+                                                    <textarea rows="10" cols="50" class="form-control" id="step0-2" name="step0-2" placeholder="Une délicieuse tarte à déguster en été, accompagnée d'une petite limonade" required></textarea>
+                                                </div>
+                                                <div class="col-md-4"> 
+                                                    <textarea rows="10" cols="50" class="form-control" id="step0-3" name="step0-3" placeholder="Une délicieuse tarte à déguster en été, accompagnée d'une petite limonade" required></textarea>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-md-1 ">
+                                        <div class="col-md-1">
                                             <button type="button" class="btn btn-primary float-right" id="etapeButton">+</button>
                                         </div>
                                     </div>
@@ -108,23 +166,6 @@
                                             <label for="lait">Faible en glucides</label>   
                                         </div>
                                     
-                                </div>
-                            </div>
-
-                            {# IMAGES #}
-                            <div class="form-group row">
-                                <div class="col-md-2">
-                                <label for="position" class="control-label">Images à ajouter</label>
-                                </div>
-                                <div class="col-md-10" id="listeInputPhoto">                             
-                                    <div class="row">
-                                        <div class="col-md-11">
-                                            <input type="file" class="form-control" id="photo" placeholder="Format .jpg ou .png" required>
-                                        </div>
-                                        <div class="col-md-1">
-                                            <button type="button" class="btn btn-primary float-right" id="photoButton">+</button>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
 

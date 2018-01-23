@@ -4,9 +4,8 @@
 
     use Silex\Application;
     use Symfony\Component\HttpFoundation\Request;
-    use \DateTime;
 
-    class AuthControlleur{
+    class AuthControlleur extends Controlleur{
 
         public function login(Request $request, Application $app){
 
@@ -42,11 +41,12 @@
                 );
 
                 unset($user['password']);
+                unset($user['id']);
                 $user['token'] = $token;
                 $user['dateEnd'] = $dateExpire;
                 $_SESSION["user"] = $user;
                 setcookie("mmmh", $token, time()+3600 * 24);
-                return $app->redirect("home");
+                return $app->redirect("/");
             }
             return $app->redirect("login");
         }
@@ -80,18 +80,4 @@
             return $app->redirect("login");
         
         }
-
-
-        private function generateToken(){
-            return substr( md5( uniqid().mt_rand() ), 0, 22 );
-        }
-
-        private function expireToken(){
-            $dateNow = new DateTime();
-            $dateNow->modify("+ 1 day");
-            return $dateNow->format("Y-m-d H:i:s");
-        }
-
-
-
     }

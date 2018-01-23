@@ -22,7 +22,14 @@
         'db.options' => array(
             'host'   => 'localhost',
             'user'     => 'root',
-            'password'     => '',
+            'password'     => 'root',
             'dbname'     => 'db_mmmh',
         ),
     ));
+
+    $app["amazon"] = array(
+        's3' => new AmazonS3(),
+        'AWS_REGION' => "AmazonS3::REGION_EU_W1",
+        'BUCKET_NAME' => "webforce3",
+        'AWS_URL' => "https://xxxxxxxxxxx.s3.amazonaws.com/",
+    );

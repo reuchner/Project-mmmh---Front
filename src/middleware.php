@@ -14,16 +14,17 @@ $isConnectYes = function (Request $request, Application $app) {
         if($idUser != false){
             $sql = "SELECT * FROM user WHERE id = ?";
             $user = $app['db']->fetchAssoc($sql, array((int) $idUser['user_id']));
+            unset($user['id']);
             unset($user['password']);
             $user['token'] = $token;
             $_SESSION["user"] = $user;
             setcookie("mmmh", $token, time()+3600 * 24);
-            return $app->redirect("home");
+            return $app->redirect("/");
             // return new RedirectResponse('/home');
         }
     }
     if( isset( $_SESSION["user"] ) )
-        return $app->redirect("home");
+        return $app->redirect("/");
         // return new RedirectResponse('/home');
 };
 $isConnectNo = function (Request $request, Application $app) {
