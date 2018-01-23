@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.5
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le :  ven. 19 jan. 2018 à 12:54
--- Version du serveur :  10.1.22-MariaDB
--- Version de PHP :  7.1.4
+-- Hôte : localhost
+-- Généré le :  mar. 23 jan. 2018 à 12:50
+-- Version du serveur :  5.6.35
+-- Version de PHP :  7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -36,6 +36,36 @@ CREATE TABLE `admin` (
   `mdp` varchar(45) DEFAULT NULL,
   `poste` varchar(45) DEFAULT NULL,
   `telephone` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL,
+  `name` varchar(90) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`) VALUES
+(1, 'generateur_recette'),
+(2, 'plats');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `categorie_has_categorie`
+--
+
+CREATE TABLE `categorie_has_categorie` (
+  `categorieid1` int(11) NOT NULL,
+  `categorieid2` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -98,6 +128,21 @@ CREATE TABLE `question_has_admin` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `recipes`
+--
+
+CREATE TABLE `recipes` (
+  `id` int(11) NOT NULL,
+  `name` varchar(70) NOT NULL,
+  `json` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `recipes`
+--
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `reponse`
 --
 
@@ -139,7 +184,19 @@ CREATE TABLE `tokens` (
 --
 
 INSERT INTO `tokens` (`token`, `type`, `created`, `dateEnd`, `user_id`) VALUES
+('7bd2ca60ee157c94a6c965', 'email', '2018-01-23 05:22:57', '2018-01-24 05:22:57', 3),
 ('c516dee6553cdb53e9bbe6', 'email', '2018-01-19 12:53:03', '2018-01-20 12:53:03', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `type_ingredient`
+--
+
+CREATE TABLE `type_ingredient` (
+  `id` int(11) NOT NULL,
+  `name` varchar(90) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -150,8 +207,11 @@ INSERT INTO `tokens` (`token`, `type`, `created`, `dateEnd`, `user_id`) VALUES
 CREATE TABLE `user` (
   `id` int(20) NOT NULL,
   `username` varchar(255) NOT NULL,
+  `firstname` varchar(50) DEFAULT NULL,
+  `lastname` varchar(50) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
+  `tel` varchar(12) DEFAULT NULL,
   `statuts` enum('actif','inactif','en attente','') NOT NULL DEFAULT 'en attente',
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -160,9 +220,9 @@ CREATE TABLE `user` (
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `statuts`, `created`) VALUES
-(2, 'test', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6', 'en attente', '2018-01-19 12:34:55'),
-(3, 'toto', 'toto@toto.fr', 'f71dbe52628a3f83a77ab494817525c6', 'en attente', '2018-01-19 12:36:53');
+INSERT INTO `user` (`id`, `username`, `firstname`, `lastname`, `email`, `password`, `tel`, `statuts`, `created`) VALUES
+(2, 'test', '', '', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6', '', 'en attente', '2018-01-19 12:34:55'),
+(3, 'toto', 'test', 'grtjrdf', 'toto@toto.toto', 'f71dbe52628a3f83a77ab494817525c6', '', 'actif', '2018-01-19 12:36:53');
 
 --
 -- Index pour les tables déchargées
@@ -173,6 +233,20 @@ INSERT INTO `user` (`id`, `username`, `email`, `password`, `statuts`, `created`)
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`idadmin`);
+
+--
+-- Index pour la table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `categorie_has_categorie`
+--
+ALTER TABLE `categorie_has_categorie`
+  ADD PRIMARY KEY (`categorieid1`,`categorieid2`),
+  ADD KEY `categorieid1` (`categorieid1`),
+  ADD KEY `categorieid2` (`categorieid2`);
 
 --
 -- Index pour la table `conso`
@@ -203,6 +277,12 @@ ALTER TABLE `question_has_admin`
   ADD KEY `fk_question_has_admin_expert1_idx` (`expert_idexpert`);
 
 --
+-- Index pour la table `recipes`
+--
+ALTER TABLE `recipes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `reponse`
 --
 ALTER TABLE `reponse`
@@ -225,6 +305,12 @@ ALTER TABLE `tokens`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Index pour la table `type_ingredient`
+--
+ALTER TABLE `type_ingredient`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `user`
 --
 ALTER TABLE `user`
@@ -239,34 +325,65 @@ ALTER TABLE `user`
 --
 ALTER TABLE `admin`
   MODIFY `idadmin` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT pour la table `conso`
 --
 ALTER TABLE `conso`
   MODIFY `idconso` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT pour la table `expert`
 --
 ALTER TABLE `expert`
   MODIFY `idexpert` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT pour la table `question`
 --
 ALTER TABLE `question`
   MODIFY `idquestion` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `recipes`
+--
+ALTER TABLE `recipes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT pour la table `reponse`
 --
 ALTER TABLE `reponse`
   MODIFY `idtable1` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `type_ingredient`
+--
+ALTER TABLE `type_ingredient`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- Contraintes pour les tables déchargées
 --
+
+--
+-- Contraintes pour la table `categorie_has_categorie`
+--
+ALTER TABLE `categorie_has_categorie`
+  ADD CONSTRAINT `categorie_has_categorie1` FOREIGN KEY (`categorieid1`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `categorie_has_categorie2` FOREIGN KEY (`categorieid2`) REFERENCES `categories` (`id`);
 
 --
 -- Contraintes pour la table `question`
