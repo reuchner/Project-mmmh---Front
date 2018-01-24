@@ -95,11 +95,11 @@
 
             $app['db']->insert('user', array(
                 'username' => $username,
-                'statut' => $statut,
-                'nom' => $nom,
-                'prenom' => $prenom,
+                'statuts' => $statut,
+                'firstname' => $nom,
+                'lastname' => $prenom,
                 'email' => $email,
-                'phone' => $phone,
+                'tel' => $phone,
                 )
             );
             

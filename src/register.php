@@ -27,6 +27,7 @@
         ),
     ));
 
+    // clés Amazon Web Services - à remplir avec les vraies clés -> VOIR index.php
     $app["amazon"] = array(
         's3' => new AmazonS3(),
         'AWS_REGION' => "AmazonS3::REGION_EU_W1",

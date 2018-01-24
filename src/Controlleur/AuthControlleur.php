@@ -24,7 +24,7 @@
             if($user == false)
                 return $app->redirect("login");
 
-            if(md5($password) == $user['password']){
+            if(md5($password) == $user['password']){ //changer la méthode de cryptage, md5 étant facile à déchiffrer
 
                 
                 $app['db']->delete('tokens', array('user_id' => $user['id']));

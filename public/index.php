@@ -4,6 +4,7 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
+    // clés Amazon Web Services - à remplir avec les vraies clés -> VOIR register.php
     define('AWS_ACCESS_KEY',"xxxxxxxxxxx");
     define('AWS_SECRET_KEY',"xxxxxxxxxxx");
     define('AWS_REGION',"AmazonS3::REGION_EU_W1");
