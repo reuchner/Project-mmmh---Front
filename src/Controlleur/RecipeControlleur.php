@@ -327,6 +327,26 @@
                                                                                 );
         }
 
+        public function selectRecipe(Request $request, Application $app){
+            $users = $app['db']->fetchAll('SELECT id, name, json  FROM recipes');           
+            return $app["twig"]->render("pages/pageAdmin/listeMembre.html.twig", array("users" => $users));
+        }
 
+        public function selectMembre(Request $request, Application $app, $id){
+
+
+            $sql = "SELECT id, name, json  FROM recipes WHERE id = ?";
+            $recipe = $app['db']->fetchAll($sql, array((int)$id));
+
+            if(empty($recipe))
+                return $app->redirect("/");
+                
+            return $app["twig"]->render("pages/profil.html.twig", array(
+                "id" => $id,
+                "name" => $recipe[0]["name"],
+                "json" => $recipe[0]["json"],
+                
+            ));
+        }
 
     }

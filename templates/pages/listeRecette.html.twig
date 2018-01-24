@@ -23,30 +23,33 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="v-align-middle ">
-                                <p>First Tour</p>
-                            </td>
-                            <td class="v-align-middle ">
-                                <p>First Tour</p>
-                            </td>
-                            <td class="v-align-middle">
-                                <p>United States, India, China,Africa</p>
-                            </td>
-                            <td class="v-align-middle">
-                                <p>it is more then ONE nation/nationality as its fall name is The United Kingdom of Great Britain and North Ireland..</p>
-                            </td>
-                            <td class="v-align-middle">
-                                <p>Public</p>
-                            </td>
-                            <td class="v-align-middle">
-                                <div class="checkbox text-center">
-                                    <input type="checkbox" value="3" id="checkbox1">
-                                    <label for="checkbox1" class="no-padding no-margin"></label>
-                                </div>
-                            </td>
-                        </tr>
+                        {% for recipe in recipes %}
+                            <tr>
+                                <a href="">
+                                    <td class="v-align-middle ">
+                                        <p>{{ recipe.id }}</p>
+                                    </td>
+                                    <td class="v-align-middle ">
+                                        <p>{{ recipe.name }}</p>
+                                    </td>
+                                    <td class="v-align-middle">
+                                        <p>{{ recipe.json }}</p>
+                                    </td>
+                                    <td class="v-align-middle">
+                                        <a href="{{ path('infoMembre', {id: recipe.id}) }}">
+                                            <button class="btn btn-link"><i class="fa fa-pencil"></i></button>
+                                        </a>  
+                                    </td>
+                                    <td class="v-align-middle">
+                                        <div class="checkbox text-center">
+                                            <input type="checkbox" value="{{ loop.index }}" id="checkbox{{ loop.index }}">
+                                            <label for="checkbox{{ loop.index }}" class="no-padding no-margin"></label>
+                                        </div>
+                                    </td>
 
+                                </a>
+                            </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>

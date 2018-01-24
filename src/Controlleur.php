@@ -33,6 +33,8 @@
          * Nom du fichier: si le fichier est téléchargé avec succès dans le seau s3
          * 
          */
+
+         // Fonction upload aux serveurs AWS
         protected function uploaded_file_to_s3($file_array, $s3_path = "/", $do_rename = FALSE) {
         
             if ($s3_path == "") {
@@ -49,6 +51,7 @@
                 'acl' => AmazonS3::ACL_PUBLIC,
             );
             
+            // bucket à remplir avec le vrai nom d'AWS
             do {
                 $r = $app["amazon"]["s3"]->create_object($app["amazon"]["BUCKET_NAME"], $s3_path . $new_file_name, $opt);
                 if ($r->isOK()) {

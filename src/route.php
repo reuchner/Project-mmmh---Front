@@ -77,7 +77,11 @@ $app->post("/ajout_recette", "Webforce3\Controlleur\RecipeControlleur::addRecipe
 
 
 $app->get("/liste_recette", function() use ($app){
-    return $app["twig"]->render("pages/listeRecette.html.twig", array());
+    $sql = "SELECT * FROM recipes";
+    $recipes = $app['db']->fetchAll($sql);
+    return $app["twig"]->render("pages/listeRecette.html.twig", array(
+        "recipes" => $recipes,
+    ));
 })->bind("liste_recette");
 
 $app->get("/ajout_conseil", function() use ($app){
@@ -103,6 +107,7 @@ $app->post("/ajoutMembre", "Webforce3\Controlleur\MembreControlleur::insertMembr
 
 $app->get("/membre", "Webforce3\Controlleur\MembreControlleur::selectMembres")->bind("listeMembre");
 $app->get("/membre/{id}", "Webforce3\Controlleur\MembreControlleur::selectMembre")->bind("infoMembre");
+$app->post("/membre/{id}", "Webforce3\Controlleur\MembreControlleur::editProfil");
 
 
 
