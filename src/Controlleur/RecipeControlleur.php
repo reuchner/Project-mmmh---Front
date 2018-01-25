@@ -25,7 +25,7 @@
                 "vignette_subtitle" =>  $_POST["vignette_subtitle"],
                 "description" =>  $_POST["description"],
             );
-            $newRecipe = json_encode($this->arrayObjectRecipe($recipe));
+            $newRecipe = json_encode($this->arrayObjectRecipe($recipe)); // conversion du tableau en Json
             $app['db']->insert('recipes', array(
                 'name' => $_POST["name"],
                 'json' => $newRecipe,

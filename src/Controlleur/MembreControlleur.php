@@ -7,7 +7,7 @@
     use \DateTime;
 
     class MembreControlleur{
-
+        // MISE A JOUR DU PROFIL DU COMPTE CONNECTE
         public function editProfilView(Request $request, Application $app){
 
             $sql = "SELECT user_id FROM tokens WHERE token = ?";

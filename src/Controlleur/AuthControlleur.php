@@ -6,7 +6,7 @@
     use Symfony\Component\HttpFoundation\Request;
 
     class AuthControlleur extends Controlleur{
-
+        // CONNEXION
         public function login(Request $request, Application $app){
 
             $email = strip_tags(trim($request->get("username")));
@@ -51,7 +51,7 @@
             return $app->redirect("login");
         }
 
-
+        // INSCRIPTION
         public function register(Request $request, Application $app){
 
             $username = strip_tags(trim($request->get("username")));
