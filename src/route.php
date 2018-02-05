@@ -22,6 +22,16 @@ $app->get('/', function () use ($app) {
         // 'nom'=> "Paul"
     ));
 })
+->bind('/')->before($isConnectNo);
+
+$app->get('/home', function () use ($app) {
+
+    return $app['twig']->render('pages/home.html.twig', array(
+        // 'user'=> "expert",
+        // 'prenom'=> "Pierre",
+        // 'nom'=> "Paul"
+    ));
+})
 ->bind('home')->before($isConnectNo);
 
 $app->get('/logout', function () use ($app) {
@@ -46,6 +56,10 @@ $app->get("/login", function() use ($app){
 })->bind("login")->before($isConnectYes);
 $app->post("/login", "Webforce3\Controlleur\AuthControlleur::login");
 
+$app->get("/register", function() use ($app){
+    return $app["twig"]->render("login-register/register.html.twig", array());
+})->bind("register");
+$app->post("/register", "Webforce3\Controlleur\AuthControlleur::register");
 
 
 /********************************************************************************/

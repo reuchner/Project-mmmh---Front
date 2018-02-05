@@ -3,47 +3,63 @@
 {% block title %}Mise a jour membre{% endblock  %}
 {% block content %}
             <h1>Modification membre</h1>
-            <form role="form" method="post" action ="">
-              <div class="form-group form-group-default ">
-                  <label>Pseudo</label>
-                  <input type="text" id="pseudo" name="pseudo" class="form-control" required>
-              </div>
-              <div class="row">
-                  <div class="col-sm-6">
-                      <div class="form-group form-group-default">
-                          <label>Prénom</label>
-                          <input type="text" id="firstname" name="firstname" class="form-control" required>
-                      </div>
-                  </div>
-                  <div class="col-sm-6">
-                      <div class="form-group form-group-default">
-                          <label>Nom</label>
-                          <input type="text" id="lastname" name="lastname" class="form-control">
-                      </div>
-                  </div>
-              </div>
+            <form role="form" method="post" action ="{{ path('listeMembre') }}">
+                      <input type="hidden" id="id" name="id" class="form-control" value=" {{ id }} ">
+    
+        <div class="row">
+            <!-- PSEUDO -->
+            <div class="col-md-6">
+                <div class="form-group form-group-default ">
+                    <label>Pseudo</label>
+                    <input type="text" id="username" name="username" class="form-control" value=" {{ username }} " required>
+                </div>
+            </div>
 
-              <div class="form-group form-group-default">
-                <label>Email</label>
-                <input type="email" id="email" name="email" class="form-control" required>
-              </div>
-          
-              <div class="form-group form-group-default">
-                <label>Mot de passe</label>
-                <input type="password" id="lastname" name="lastname" class="form-control" required>
-              </div>
+            <!-- STATUT -->
+            <div class="col-md-6">
+                    <label>Statut</label>
+                    <p>{{ statuts }} </p>
+            </div>
+        </div>
+        <div class="row">
+            <!-- FIRST NAME -->
+            <div class="col-md-6">
+                <div class="form-group form-group-default">
+                    <label>Prénom</label>
+                    <input type="text" id="firstname" name="firstname" class="form-control" value=" {{ firstname }} " required>
+                </div>
+            </div>
+            <!-- LAST NAME -->
+            <div class="col-md-6">
+                <div class="form-group form-group-default">
+                    <label>Nom</label>
+                    <input type="text" id="lastname" name="lastname" class="form-control" value=" {{ lastname }} " required>
+                </div>
+            </div>
+        </div>
 
+        <div class="row">
+            <!-- PASSWORD -->
+            <div class="col-md-6">
+                <div class="form-group form-group-default">
+                    <label>Mot de passe</label>
+                    <input type="password" id="password" name="password" class="form-control" value="azertyuiop" required>
+                </div>
+            </div>
 
-              <div class="form-group form-group-default">
-                <label>Numéro de téléphone</label>
-                <input type="tel" id="phone" name="phone" class="form-control" required>
-              </div>
-
-              <div class="form-group form-group-default">
-                <label>Poste</label>
-                <input type="text" id="position" name="position" class="form-control" required>
-              </div>
-              
+            <!-- EMAIL -->
+            <div class="col-md-6">
+                <div class="form-group form-group-default">
+                    <label>Email</label>
+                    <input type="email" id="email" name="email" class="form-control" value=" {{ email }} " required>
+                </div>
+            </div>
+        </div>
+        <!-- TELEPHONE -->
+        <div class="form-group form-group-default">
+            <label>Numéro de téléphone</label>
+            <input type="tel" id="phone" name="phone" class="form-control" value=" {{ phone }} " required>
+        </div>
               <!-- Validation -->
 
               <button class="btn btn-primary btn-animated from-left fa fa-check" type="button">
