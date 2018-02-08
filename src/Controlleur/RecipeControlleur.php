@@ -31,10 +31,15 @@
                 'json' => $newRecipe,
                 )
             );
+            // $app['mongodb']->insertOne('recipes', array(
+            //     'name' => $_POST["name"],
+            //     'json' => $newRecipe,
+            //     )
+            // );
             return $app->redirect("liste_recette");
             
         }
-
+ 
         private function arrayObjectRecipe($data){
 
             return array(
