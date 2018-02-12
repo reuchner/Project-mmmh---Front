@@ -4,8 +4,66 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0174891181a32c6e49c2dad7af10a4c0",
+    "content-hash": "74bf5503230a1f16d87ffd3090cf15eb",
     "packages": [
+        {
+            "name": "corllete/silex-mongodb-provider",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/corllete/silex-mongodb-provider.git",
+                "reference": "c2ed89e94dfef3d75f659e281784151fc2fd8a0e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/corllete/silex-mongodb-provider/zipball/c2ed89e94dfef3d75f659e281784151fc2fd8a0e",
+                "reference": "c2ed89e94dfef3d75f659e281784151fc2fd8a0e",
+                "shasum": ""
+            },
+            "require": {
+                "mongodb/mongodb": "^1.0.0",
+                "php": "~5.6||~7.0",
+                "pimple/pimple": "~3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Corllete\\SilexMongoDB\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Miro Yovchev",
+                    "email": "m.yovchev@corllete.com"
+                },
+                {
+                    "name": "Corllete Team",
+                    "homepage": "http://corllete.com/about-us"
+                }
+            ],
+            "description": "Silex 2.x MongoDB Service Provider - MongoDB PHP Library",
+            "keywords": [
+                "PHP Library",
+                "corllete",
+                "mongo",
+                "mongodb",
+                "php",
+                "silex"
+            ],
+            "time": "2016-09-17T12:03:05+00:00"
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.6.0",
@@ -481,6 +539,71 @@
                 "parser"
             ],
             "time": "2014-09-09T13:34:57+00:00"
+        },
+        {
+            "name": "mongodb/mongodb",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mongodb/mongo-php-library.git",
+                "reference": "07ffd2438658342b776803323cfaa7c156a6099a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mongodb/mongo-php-library/zipball/07ffd2438658342b776803323cfaa7c156a6099a",
+                "reference": "07ffd2438658342b776803323cfaa7c156a6099a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-hash": "*",
+                "ext-json": "*",
+                "ext-mongodb": "^1.4.0",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.36"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MongoDB\\": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jeremy Mikola",
+                    "email": "jmikola@gmail.com"
+                },
+                {
+                    "name": "Derick Rethans",
+                    "email": "github@derickrethans.nl"
+                },
+                {
+                    "name": "Katherine Walker",
+                    "email": "katherine.walker@mongodb.com"
+                }
+            ],
+            "description": "MongoDB driver library",
+            "homepage": "https://jira.mongodb.org/browse/PHPLIB",
+            "keywords": [
+                "database",
+                "driver",
+                "mongodb",
+                "persistence"
+            ],
+            "time": "2018-02-08T16:30:23+00:00"
         },
         {
             "name": "paragonie/random_compat",
